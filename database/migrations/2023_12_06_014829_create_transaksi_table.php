@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_item');
+            $table->integer('price');
+            $table->integer('qty');
+            $table->integer('total');
             $table->timestamps();
         });
     }

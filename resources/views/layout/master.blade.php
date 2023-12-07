@@ -65,12 +65,12 @@
             <div class="user-account">
                 <img src="../assets/images/user.png" class="rounded-circle user-photo" alt="User Profile Picture">
                 <div class="dropdown">
-                    <span>Welcome,</span>
+                    <span>Selamat Datang,</span>
                     <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
                     <ul class="dropdown-menu dropdown-menu-right account animated flipInY">
-                        <li><a href="#"><i class="icon-user"></i>My Profile</a></li>
-                        <li><a href="{{ route('logout') }}"><i class="icon-power" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();";></i>Logout</a></li>
+                        <li><a href="#"><i class="icon-user"></i>Profilku</a></li>
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"><i class="icon-power"></i>Logout</a></li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -79,7 +79,7 @@
             </div>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#hr_menu">HR</a></li>
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#hr_menu">Halaman</a></li>
                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting"><i class="icon-settings"></i></a></li>
             </ul>
 
@@ -88,37 +88,29 @@
                 <div class="tab-pane animated fadeIn active" id="hr_menu">
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
-                            <li><a href="/dashboard"><i class="icon-speedometer"></i><span>HR Dashboard</span></a></li>
-                            <li><a href="/blank"><i class="icon-list"></i>Blank Page</a></li>
+                            <li><a href="/dashboard"><i class="icon-speedometer"></i><span>Dasbor</span></a></li>
+                            <li><a href="/blank"><i class="icon-list"></i>Halaman Kasir</a></li>
                             <li>
-                                <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Item</span></a>
+                                <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Tabel</span></a>
                                 <ul>
-                                    <li><a href="/table/category">Category</a></li>
-                                    <li><a href="/table/item">Item</a></li>
+                                    <li><a href="/table/category">Kategori</a></li>
+                                    <li><a href="/table/item">Barang</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#Accounts" class="has-arrow"><i class="icon-briefcase"></i><span>Accounts</span></a>
+                                <a href="#Report" class="has-arrow"><i class="icon-bar-chart"></i><span>Laporan</span></a>
                                 <ul>
-                                    <li><a href="/acc/payment">Payments</a></li>
-                                    <li><a href="/acc/expenses">Expenses</a></li>
-                                    <li><a href="/acc/invoices">Invoices</a></li>
+                                    <li><a href="/report/expenses">Pengeluaran</a></li>
+                                    <li><a href="/report/invoices">Pemasukan</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#Report" class="has-arrow"><i class="icon-bar-chart"></i><span>Report</span></a>
-                                <ul>
-                                    <li><a href="/report/expenses">Expense Report</a></li>
-                                    <li><a href="/report/invoices">Invoice Report</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="/users"><i class="icon-user"></i>Users</a></li>
+                            <li><a href="/users"><i class="icon-user"></i>Pengguna / User</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="tab-pane animated fadeIn" id="setting">
                     <div class="p-l-15 p-r-15">
-                        <h6>Choose Skin</h6>
+                        <h6>Pilih Warna</h6>
                         <ul class="choose-skin list-unstyled">
                             <li data-theme="purple">
                                 <div class="purple"></div>

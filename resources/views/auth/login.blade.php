@@ -40,8 +40,8 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="signin-email" class="control-label sr-only">Email</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="signin-email" name="email" placeholder="Email">
-                                    @error('email')
+                                    <input type="text" class="form-control @error('username') is-invalid @enderror" id="signin-usename" name="username" placeholder="Username">
+                                    @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
