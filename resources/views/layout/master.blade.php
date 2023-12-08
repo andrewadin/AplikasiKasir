@@ -24,9 +24,6 @@
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
 @yield('css')
-
-<!-- Scripts -->
-@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body class="theme-cyan">
@@ -88,7 +85,7 @@
                 <div class="tab-pane animated fadeIn active" id="hr_menu">
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
-                            <li><a href="/dashboard"><i class="icon-speedometer"></i><span>Dasbor</span></a></li>
+                            <li><a href="{{ route('home') }}"><i class="icon-speedometer"></i><span>Dasbor</span></a></li>
                             <li><a href="/blank"><i class="icon-list"></i>Halaman Kasir</a></li>
                             <li>
                                 <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Tabel</span></a>

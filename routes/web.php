@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ExpensesController;
+use App\Http\Controllers\InvoicesController;
+use App\Http\Controllers\KasirController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,45 +23,17 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/dashboard', function () {
-    return view('layouts/dashboard');
-});
+Route::get('/blank', [KasirController::class,'index']);
 
-Route::get('/blank',function () {
-    return view('layouts/kasir');
-});
+Route::get('/table/category',[CategoryController::class,'index']);
 
-Route::get('/table/category', function () {
-    return view('layouts/table-category');
-});
+Route::get('/table/item',[ItemController::class,'index']);
 
-Route::get('/table/item', function () {
-    return view('layouts/table-item');
-});
+Route::get('/report/expenses', [ExpensesController::class,'index']);
 
-Route::get('/acc/payment', function (){
-    return view('layouts/acc-payment');
-});
+Route::get('/report/invoices', [InvoicesController::class,'index']);
 
-Route::get('/acc/expenses', function (){
-    return view('layouts/acc-expense');
-});
-
-Route::get('/acc/invoices', function (){
-    return view('layouts/acc-invoices');
-});
-
-Route::get('/report/expenses', function (){
-    return view('layouts/rep-expense');
-});
-
-Route::get('/report/invoices', function (){
-    return view('layouts/rep-invoices');
-});
-
-Route::get('/users', function(){
-    return view('layouts/users');
-});
+Route::get('/users', [UsersController::class,'index']);
 
 Auth::routes();
 
