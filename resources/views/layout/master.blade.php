@@ -33,7 +33,7 @@
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
-        <div class="m-t-30"><img src="../assets/images/logo-icon.svg" width="48" height="48" alt="Lucid"></div>
+        <div class="m-t-30"><img src="{{asset('assets/images/logo-icon.svg')}}" width="48" height="48" alt="Lucid"></div>
         <p>Please wait...</p>
     </div>
 </div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="navbar-brand">
-                <a href="index.html"><img src="../assets/images/logo.svg" alt="Lucid Logo" class="img-responsive logo"></a>
+                <a href="index.html"><img src="{{asset('assets/images/logo.svg')}}" alt="Lucid Logo" class="img-responsive logo"></a>
             </div>
 
             <div class="navbar-right">
@@ -63,7 +63,7 @@
     <div id="left-sidebar" class="sidebar">
         <div class="sidebar-scroll">
             <div class="user-account">
-                <img src="../assets/images/user.png" class="rounded-circle user-photo" alt="User Profile Picture">
+                <img src="{{asset('assets/images/user.png')}}" class="rounded-circle user-photo" alt="User Profile Picture">
                 <div class="dropdown">
                     <span>Selamat Datang,</span>
                     <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
@@ -89,7 +89,11 @@
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
                             <li><a href="{{ route('home') }}"><i class="icon-speedometer"></i><span>Dasbor</span></a></li>
-                            <li><a href="{{ route('kasir') }}"><i class="icon-list"></i>Halaman Kasir</a></li>
+                            <li><a href="/blank"><i class="icon-list" aria-hidden="true"></i>
+                                Halaman Blank</a></li>
+                            <li>
+                            <li><a href="{{ route('kasir') }}"><i class="fa fa-money" aria-hidden="true"></i>
+                                Halaman Kasir</a></li>
                             <li>
                                 <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Tabel</span></a>
                                 <ul>

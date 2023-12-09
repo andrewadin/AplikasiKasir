@@ -16,6 +16,7 @@
 <!-- VENDOR CSS -->
 <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
@@ -65,5 +66,6 @@
 		</div>
 	</div>
 	<!-- END WRAPPER -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
