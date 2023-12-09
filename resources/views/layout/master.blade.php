@@ -19,6 +19,9 @@
 <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/vendor/morrisjs/morris.css')}}"/>
 <link rel="stylesheet" href="{{asset('assets/vendor/nestable/jquery-nestable.css')}}"/>
+<link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css')}}">
 
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
@@ -86,22 +89,22 @@
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
                             <li><a href="{{ route('home') }}"><i class="icon-speedometer"></i><span>Dasbor</span></a></li>
-                            <li><a href="/blank"><i class="icon-list"></i>Halaman Kasir</a></li>
+                            <li><a href="{{ route('kasir') }}"><i class="icon-list"></i>Halaman Kasir</a></li>
                             <li>
                                 <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Tabel</span></a>
                                 <ul>
-                                    <li><a href="/table/category">Kategori</a></li>
-                                    <li><a href="/table/item">Barang</a></li>
+                                    <li><a href="{{ route('kategori') }}">Kategori</a></li>
+                                    <li><a href="{{ route('barang') }}">Barang</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#Report" class="has-arrow"><i class="icon-bar-chart"></i><span>Laporan</span></a>
                                 <ul>
-                                    <li><a href="/report/expenses">Pengeluaran</a></li>
-                                    <li><a href="/report/invoices">Pemasukan</a></li>
+                                    <li><a href="{{ route('pengeluaran') }}">Pengeluaran</a></li>
+                                    <li><a href="{{ route('pemasukan') }}">Pemasukan</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/users"><i class="icon-user"></i>Pengguna / User</a></li>
+                            <li><a href="{{ route('users') }}"><i class="icon-user"></i>Pengguna / User</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -156,5 +159,12 @@
 <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
 <script src="{{asset('assets/js/pages/ui/sortable-nestable.js')}}"></script>
 <script src="{{asset('assets/js/index2.js')}}"></script>
+<script src="{{asset('assets/bundles/datatablescripts.bundle.js')}}"></script>
+<script src="{{asset('assets/js/pages/tables/jquery-datatable.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.colVis.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.html5.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.print.min.js')}}"></script>
 @yield('script')
 </body>

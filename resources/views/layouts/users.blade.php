@@ -1,9 +1,4 @@
 @extends('layout.master')
-@section('css')
-<link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css')}}">
-@endsection
 @section('content')
 <div id="main-content">
     <div class="container-fluid">
@@ -130,14 +125,4 @@
         </div>
     </div>
 </div>
-@endsection
-@section('script')
-<script src="{{asset('assets/bundles/datatablescripts.bundle.js')}}"></script>
-<script src="{{asset('assets/js/pages/tables/jquery-datatable.js')}}"></script>
-<script src="{{asset('assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.colVis.min.js')}}"></script>
-<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.html5.min.js')}}"></script>
-<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.print.min.js')}}"></script>
-
 @endsection

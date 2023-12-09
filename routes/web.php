@@ -23,17 +23,17 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/blank', [KasirController::class,'index']);
+Route::get('/kasir', [KasirController::class,'index'])->name('kasir');
 
-Route::get('/table/category',[CategoryController::class,'index']);
+Route::get('/tabel/kategory',[CategoryController::class,'index'])->name('kategori');
 
-Route::get('/table/item',[ItemController::class,'index']);
+Route::get('/tabel/barang',[ItemController::class,'index'])->name('barang');
 
-Route::get('/report/expenses', [ExpensesController::class,'index']);
+Route::get('/laporan/pengeluaran', [ExpensesController::class,'index'])->name('pengeluaran');
 
-Route::get('/report/invoices', [InvoicesController::class,'index']);
+Route::get('/laporan/pemasukan', [InvoicesController::class,'index'])->name('pemasukan');
 
-Route::get('/users', [UsersController::class,'index']);
+Route::get('/users', [UsersController::class,'index'])->name('users');
 
 Auth::routes();
 
