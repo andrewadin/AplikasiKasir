@@ -19,10 +19,10 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card planned_task">
                         <div class="header">
-                            <a href="{{route('kategori-add')}}"><button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"
-                                    aria-hidden="true"></i>
-                                Tambah Kategori Baru</button></a>
                             <h2>Tabel Kategori</h2>
+                            <a href="{{ route('kategori-add') }}"><button type="button"
+                                    class="btn btn-primary pull-right"><i class="fa fa-plus" aria-hidden="true"></i>
+                                    Tambah Kategori Baru</button></a>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -40,11 +40,19 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $k->category }}</td>
                                                 <td>
-                                                    <a href="{{route('kategori-edit',$k->id)}}" class="btn btn-success"><i class="fa fa-pencil-square-o"
-                                                            aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="{{route('kategori-delete',$k->id)}}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin untuk menghapus kategori ini?')"><i class="fa fa-trash-o"
-                                                            aria-hidden="true"></i>
+                                                    <form action="{{route('kategori-delete')}}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <input type="hidden" name="id" value="{{ $k->id }}">
+                                                        <a href="{{ route('kategori-edit', $k->id) }}"
+                                                            class="btn btn-success"><i class="fa fa-pencil-square-o"
+                                                                aria-hidden="true"></i>
+                                                        </a>
+                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah anda yakin untuk menghapus kategori {{ $k->category }} ?')">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </button>
+                                                    </form>
                                                     </a>
                                                 </td>
                                             </tr>

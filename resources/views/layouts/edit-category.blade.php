@@ -29,6 +29,7 @@
                         <div class="body">
                             <form id="basic-form" method="post" action="{{ route('kategori-update',$kategori->id) }}">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group">
                                     <label>Kategori</label>
                                     <input type="text" class="form-control" placeholder="Masukkkan nama kategori" name="category" value="{{ $kategori->category }}" required>

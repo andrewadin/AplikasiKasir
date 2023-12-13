@@ -22,7 +22,7 @@ class CategoryController extends Controller
     }
 
     public function store(Request $request){
-        Category::create([
+        Category::updateOrCreate([
             'category' => $request->category,
         ]);
 
@@ -35,15 +35,15 @@ class CategoryController extends Controller
     }
 
     public function update($id,Request $request){
-        $kategori = Category::find($id);
-        $kategori->category = $request->category;
-        $kategori->save();
+        Category::updateOrCreate(
+            ['id' => $id],
+            ['category' => $request->category,
+        ]);
         return redirect('/tabel/kategori');
     }
 
-    public function delete($id){
-        $kategori = Category::find($id);
-        $kategori->delete();
+    public function delete(Request $request){
+        Category::where('id', $request->id)->delete();
         return redirect('/tabel/kategori');
     }
 }

@@ -19,6 +19,8 @@ use App\Http\Controllers\UsersController;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('auth/login');
 });
@@ -33,17 +35,19 @@ Route::get('/tabel/kategori',[CategoryController::class,'index'])->name('kategor
 Route::get('/tabel/kategori/add',[CategoryController::class,'add'])->name('kategori-add');
 Route::post('/tabel/kategori/simpan',[CategoryController::class,'store'])->name('kategori-store');
 Route::get('/tabel/kategori/edit/{id}',[CategoryController::class,'edit'])->name('kategori-edit');
-Route::post('/tabel/kategori/update/{id}',[CategoryController::class,'update'])->name('kategori-update');
-Route::get('/tabel/kategori/delete/{id}',[CategoryController::class,'delete'])->name('kategori-delete');
+Route::put('/tabel/kategori/update/{id}',[CategoryController::class,'update'])->name('kategori-update');
+Route::delete('/tabel/kategori/delete',[CategoryController::class,'delete'])->name('kategori-delete');
 
 Route::get('/tabel/barang',[ItemController::class,'index'])->name('barang');
+Route::get('/tabel/barang/add',[ItemController::class,'add'])->name('barang-add');
+Route::post('/tabel/barang/simpan',[ItemController::class,'store'])->name('barang-store');
+Route::get('/tabel/barang/edit/{id}',[ItemController::class,'edit'])->name('barang-edit');
+Route::put('/tabel/barang/update/{id}',[ItemController::class,'update'])->name('barang-update');
+Route::delete('/tabel/barang/delete/',[ItemController::class,'delete'])->name('barang-delete');
 
 Route::get('/laporan/pengeluaran', [ExpensesController::class,'index'])->name('pengeluaran');
 
 Route::get('/laporan/pemasukan', [InvoicesController::class,'index'])->name('pemasukan');
 
 Route::get('/users', [UsersController::class,'index'])->name('users');
-
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

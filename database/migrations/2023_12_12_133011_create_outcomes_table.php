@@ -13,11 +13,17 @@ return new class extends Migration
     {
         Schema::create('outcomes', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_item');
-            $table->integer('price');
+            $table->unsignedBigInteger('id_item');
+            $table->double('price');
             $table->integer('qty');
-            $table->integer('total');
+            $table->double('total');
             $table->timestamps();
+
+            $table->foreign('id_item')
+                  ->references('id')
+                  ->on('items')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('outcme');
+        Schema::dropIfExists('outcomes');
     }
 };

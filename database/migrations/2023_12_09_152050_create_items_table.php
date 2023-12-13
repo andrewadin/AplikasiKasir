@@ -13,12 +13,18 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_category');
+            $table->unsignedBigInteger('id_category');
             $table->string('item_name');
             $table->integer('stok');
-            $table->integer('buy_price');
-            $table->integer('sell_price');
+            $table->double('buy_price');
+            $table->duble('sell_price');
             $table->timestamps();
+
+            $table->foreign('id_category')
+                  ->references('id')
+                  ->on('categories')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

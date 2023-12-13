@@ -16,4 +16,8 @@ class Items extends Model
         'buy_price',
         'sell_price',
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class, 'id_category');
+    }
 }
