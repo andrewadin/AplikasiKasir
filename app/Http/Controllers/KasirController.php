@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Items;
 use Illuminate\Http\Request;
 
 class KasirController extends Controller
@@ -12,6 +13,7 @@ class KasirController extends Controller
     }
 
     public function index() {
-        return view('layouts/kasir');
+        $barang = Items::all();
+        return view('layouts/kasir',['barang' => $barang]);
     }
 }
