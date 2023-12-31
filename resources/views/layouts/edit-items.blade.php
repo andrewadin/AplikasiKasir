@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
-                                    class="fa fa-arrow-left"></i></a> Page Blank</h2>
+                                    class="fa fa-arrow-left"></i></a> Halaman Edit Barang</h2>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item">Pages</li>
-                            <li class="breadcrumb-item active">Page Blank</li>
+                            <li class="breadcrumb-item">Tabel</li>
+                            <li class="breadcrumb-item">Barang</li>
+                            <li class="breadcrumb-item active">Edit Barang</li>
                         </ul>
                     </div>
                 </div>
@@ -52,14 +52,14 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input type="number" class="form-control" name="buy_price" placeholder="Ex: 1.000,00 Rp" id="buy_price" value="{{ $barang->buy_price }}">
+                                    <input type="text" class="form-control" name="buy_price" placeholder="Ex: 1.000,00 Rp" id="buy_price" value="{{ $barang->buy_price }}">
                                 </div>
                                 <label for="">Harga Jual</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input type="number" class="form-control" name="sell_price" placeholder="Ex: 1000,00 Rp" id="sell_price" value="{{ $barang->sell_price }}">
+                                    <input type="text" class="form-control" name="sell_price" placeholder="Ex: 1000,00 Rp" id="sell_price" value="{{ $barang->sell_price }}">
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</button>

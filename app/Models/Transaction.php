@@ -17,6 +17,6 @@ class Transaction extends Model
     ];
 
     public function items(){
-        return $this->belongTo(Items::class);
+        return $this->belongsTo(Items::class, 'id_item');
     }
 }

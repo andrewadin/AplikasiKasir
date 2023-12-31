@@ -44,10 +44,22 @@ Route::post('/tabel/barang/simpan',[ItemController::class,'store'])->name('baran
 Route::get('/tabel/barang/edit/{id}',[ItemController::class,'edit'])->name('barang-edit');
 Route::put('/tabel/barang/update/{id}',[ItemController::class,'update'])->name('barang-update');
 Route::delete('/tabel/barang/delete/',[ItemController::class,'delete'])->name('barang-delete');
+Route::get('/table/barang/restock', [ItemController::class,'restock'])->name('barang-restock');
+Route::get('/table/barang/restock/{id}', [ItemController::class,'restockid'])->name('barang-restockid');
 
+Route::post('/kasir/store',[KasirController::class,'store'])->name('kasir-store');
+Route::put('/restock', [ExpensesController::class,'store'])->name('restock');
 Route::get('/laporan/pengeluaran', [ExpensesController::class,'index'])->name('pengeluaran');
 
 Route::get('/laporan/pemasukan', [InvoicesController::class,'index'])->name('pemasukan');
 
 Route::get('/users', [UsersController::class,'index'])->name('users');
+Route::get('/users/add',[UsersController::class,'add'])->name('users-add');
+Route::post('/users/store',[UsersController::class,'store'])->name('users-store');
+Route::get('/users/edit/{id}',[UsersController::class,'edit'])->name('users-edit');
+Route::put('/users/update{id}',[UsersController::class,'update'])->name('users-update');
+Route::delete('/users/delete/{id}',[UsersController::class,'delete'])->name('users-delete');
+Route::get('/users/forgot/{id}',[UsersController::class,'forgotpsw'])->name('users-fpsw');
+Route::put('/users/change/{id}',[UsersController::class,'changepsw'])->name('users-cpsw');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

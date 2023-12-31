@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
-                                    class="fa fa-arrow-left"></i></a> Page Blank</h2>
+                                    class="fa fa-arrow-left"></i></a> Halaman Tabel Barang</h2>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item">Halaman</li>
@@ -25,6 +25,8 @@
                             <h2>Tabel Barang</h2>
                             <a href="{{ route('barang-add') }}"><button class="btn btn-primary pull-right"><i
                                         class="fa fa-plus" aria-hidden="true"></i> Tambah Barang</button></a>
+                            <a href="{{route('barang-restock')}}"><button class="btn btn-primary pull-right"><i
+                                        class="fa fa-plus" aria-hidden="true"></i> Re - Stock</button></a>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -47,8 +49,8 @@
                                                 <td>{{ $b->item_name }}</td>
                                                 <td>{{ $b->category->category }}</td>
                                                 <td>{{ $b->stok }}</td>
-                                                <td>{{ $b->buy_price }}</td>
-                                                <td>{{ $b->sell_price }}</td>
+                                                <td>Rp. {{ number_format($b->buy_price,0,',','.') }}</td>
+                                                <td>Rp. {{ number_format($b->sell_price,0,',','.') }}</td>
                                                 <td>
                                                     <form action="{{ route('barang-delete') }}" method="post">
                                                         @csrf
@@ -59,7 +61,7 @@
                                                                 aria-hidden="true"></i>
                                                         </a>
                                                         <button type="submit" class="btn btn-danger"
-                                                            onclick="return confirm('Apakah anda yakin untuk menghapus kategori ini?')"><i
+                                                            onclick="return confirm('Apakah anda yakin untuk menghapus produk ini?')"><i
                                                                 class="fa fa-trash-o" aria-hidden="true"></i>
                                                         </button>
                                                     </form>

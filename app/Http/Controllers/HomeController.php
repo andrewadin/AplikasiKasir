@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Items;
+use App\Models\Outcome;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts/dashboard');
+        $items = Items::all();
+        $stock = Items::where('stok','<','100')->get();
+        $nstock = Items::where('stok','<','100')->count();
+        $income = Transaction::all()->sum('total');
+        $expenses = Outcome::all()->sum('total');
+        return view('layouts/dashboard',['items' => $items, 'income' => $income, 'expenses' => $expenses, 'stock' => $stock, 'nstock' => $nstock]);
     }
 }

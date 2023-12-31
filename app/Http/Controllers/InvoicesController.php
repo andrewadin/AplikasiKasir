@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class InvoicesController extends Controller
@@ -12,6 +13,7 @@ class InvoicesController extends Controller
     }
 
     public function index(){
-        return view('layouts/rep-invoices');
+        $invoice = Transaction::with('items')->get();
+        return view('layouts/rep-invoices',['invoice' => $invoice]);
     }
 }

@@ -5,11 +5,10 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12">
-                    <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Page Invoice</h2>
+                    <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Halaman Pengguna / Users</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-                        <li class="breadcrumb-item">Pages</li>
-                        <li class="breadcrumb-item active">Invoice</li>
+                        <li class="breadcrumb-item"><a href="{{ route('home')}}"><i class="icon-home"></i></a></li>
+                        <li class="breadcrumb-item active">User</li>
                     </ul>
                 </div>
             </div>
@@ -20,7 +19,7 @@
                     <div class="header">
                         <h2>List</h2>
                         <ul class="header-dropdown">
-                            <li><a href="javascript:void(0);" class="btn btn-info" data-toggle="modal" data-target="#add_user">Add User</a></li>
+                            <li><a href="{{ route('users-add') }}" class="btn btn-info">Add User</a></li>
                         </ul>
                     </div>
                     <div class="body">
@@ -29,93 +28,42 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th>Created Date</th>
                                         <th>Role</th>
+                                        <th>Created Date</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="width45">
-                                            <img src="../assets/images/xs/avatar1.jpg" class="rounded-circle width35" alt="">
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-0">Marshall Nichols</h6>
-                                            <span>marshall-n@gmail.com</span>
-                                        </td>
-                                        <td><span class="badge badge-danger">Super Admin</span></td>
-                                        <td>24 Jun, 2015</td>
-                                        <td>CEO and Founder</td>
-                                        <td>
-
-                                        </td>
-                                    </tr>
+                                    @foreach ($users as $u)
                                     <tr>
                                         <td>
-                                            <img src="../assets/images/xs/avatar2.jpg" class="rounded-circle width35" alt="">
+                                            <h6 class="mb-0">{{ $u->name }}</h6>
+                                            <span>{{ $u->username }}</span>
                                         </td>
+                                        @if ($u->level == "admin")
+                                        <td><span class="badge badge-danger">{{ $u->level }}</span></td>
+                                        @else
+                                        <td><span class="badge badge-success">{{ $u->level }}</span></td>
+                                        @endif
+                                        <td>{{ $u->created_at }}</td>
                                         <td>
-                                            <h6 class="mb-0">Susie Willis</h6>
-                                            <span>sussie-w@gmail.com</span>
-                                        </td>
-                                        <td><span class="badge badge-info">Admin</span></td>
-                                        <td>28 Jun, 2015</td>
-                                        <td>Team Lead</td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></button>
-                                            <button type="button" class="btn btn-sm btn-outline-danger js-sweetalert" title="Delete" data-type="confirm"><i class="fa fa-trash-o"></i></button>
+                                            <form action="{{route('users-delete', $u->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="hidden" name="id" value="{{ $u->id }}">
+                                                <a href="{{ route('users-edit', $u->id)}}"
+                                                    class="btn btn-success"><i class="fa fa-pencil-square-o"
+                                                        aria-hidden="true"></i> Ubah Nama dan level
+                                                </a>
+                                                <a href="{{ route('users-fpsw',$u->id)}}" class="btn btn-success"><i class="fa fa-pencil-square-o"></i> Ganti Passsword</a>
+                                                <button type="submit" class="btn btn-danger"
+                                                    onclick="return confirm('Apakah anda yakin untuk menghapus user ini?')"><i
+                                                        class="fa fa-trash-o" aria-hidden="true"></i> Hapus akun
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="../assets/images/xs/avatar3.jpg" class="rounded-circle width35" alt="">
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-0">Debra Stewart</h6>
-                                            <span>debra@gmail.com</span>
-                                        </td>
-                                        <td><span class="badge badge-info">Admin</span></td>
-                                        <td>21 July, 2015</td>
-                                        <td>Team Lead</td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></button>
-                                            <button type="button" class="btn btn-sm btn-outline-danger js-sweetalert" title="Delete" data-type="confirm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="../assets/images/xs/avatar4.jpg" class="rounded-circle width35" alt="">
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-0">Erin Gonzales</h6>
-                                            <span>Erinonzales@gmail.com</span>
-                                        </td>
-                                        <td><span class="badge badge-default">Employee</span></td>
-                                        <td>21 July, 2015</td>
-                                        <td>Web Developer</td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></button>
-                                            <button type="button" class="btn btn-sm btn-outline-danger js-sweetalert" title="Delete" data-type="confirm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="../assets/images/xs/avatar3.jpg" class="rounded-circle width35" alt="">
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-0">Ava Alexander</h6>
-                                            <span>alexander@gmail.com</span>
-                                        </td>
-                                        <td><span class="badge badge-success">HR Admin</span></td>
-                                        <td>21 July, 2015</td>
-                                        <td>HR</td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></button>
-                                            <button type="button" class="btn btn-sm btn-outline-danger js-sweetalert" title="Delete" data-type="confirm"><i class="fa fa-trash-o"></i></button>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

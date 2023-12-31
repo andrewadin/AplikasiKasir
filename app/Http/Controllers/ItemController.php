@@ -35,7 +35,7 @@ class ItemController extends Controller
         return redirect('/tabel/barang');
     }
 
-    public function edit(Request $request, $id){
+    public function edit($id){
         $barang = Items::find($id);
         $kategori = Category::all();
         return view('layouts/edit-items',['barang' => $barang, 'kategori' => $kategori]);
@@ -58,5 +58,16 @@ class ItemController extends Controller
     public function delete(Request $request){
         Items::where('id', $request->id)->delete();
         return redirect('/tabel/barang');
+    }
+
+    public function restock(){
+        $barang = Items::all();
+        return view('layouts/restock',['barang' => $barang]);
+    }
+
+    public function restockid($id){
+        $barang = Items::all();
+        $sbarang = Items::find($id);
+        return view('layouts/restockid',['barang' => $barang, 'sbarang' => $sbarang]);
     }
 }

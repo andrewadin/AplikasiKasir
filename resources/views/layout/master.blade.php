@@ -88,12 +88,8 @@
                 <div class="tab-pane animated fadeIn active" id="hr_menu">
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
-                            <li><a href="{{ route('home') }}"><i class="icon-speedometer"></i><span>Dasbor</span></a></li>
-                            <li><a href="/blank"><i class="icon-list" aria-hidden="true"></i>
-                                Halaman Blank</a></li>
-                            <li>
-                            <li><a href="{{ route('kasir') }}"><i class="fa fa-money" aria-hidden="true"></i>
-                                Halaman Kasir</a></li>
+                            <li><a href="{{ route('home') }}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
+                            <li><a href="{{ route('kasir') }}"><i class="fa fa-money" aria-hidden="true"></i>Kasir</a></li>
                             <li>
                                 <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Tabel</span></a>
                                 <ul>
@@ -152,7 +148,6 @@
 <!-- Javascript -->
 <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
 <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
-<script src="{{asset('assets/vendor/autoNumeric/src/AutoNumeric.js')}}"></script>
 
 <script src="{{asset('assets/vendor/toastr/toastr.js')}}"></script>
 <script src="{{asset('assets/vendor/toastr/toastr.js')}}"></script>
@@ -171,5 +166,6 @@
 <script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.colVis.min.js')}}"></script>
 <script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.html5.min.js')}}"></script>
 <script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.print.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/autonumeric@4.8.1"></script>
 @yield('script')
 </body>
