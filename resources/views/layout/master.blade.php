@@ -63,12 +63,10 @@
     <div id="left-sidebar" class="sidebar">
         <div class="sidebar-scroll">
             <div class="user-account">
-                <img src="{{asset('assets/images/user.png')}}" class="rounded-circle user-photo" alt="User Profile Picture">
                 <div class="dropdown">
                     <span>Selamat Datang,</span>
                     <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
                     <ul class="dropdown-menu dropdown-menu-right account animated flipInY">
-                        <li><a href="#"><i class="icon-user"></i>Profilku</a></li>
                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"><i class="icon-power"></i>Logout</a></li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
