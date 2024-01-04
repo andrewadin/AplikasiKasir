@@ -44,11 +44,11 @@
                                 </div>
                                 <div class="form-group">
                                     <span>Harga</span>
-                                    <input class="form-control harga" type="number" name="harga" id="harga" readonly>
+                                    <input class="form-control harga" type="text" name="harga" id="harga" readonly>
                                 </div>
                                 <div class="form-group">
                                     <span>Total</span>
-                                    <input class="form-control total" type="number" name="total" id="total" readonly>
+                                    <input class="form-control total" type="text" name="total" id="total" readonly>
                                 </div>
                                 <button type="submit" class="btn btn-primary"
                                     onclick="return confirm('Apakah anda sudah yakin ?')">Re - stock</button>
@@ -66,20 +66,34 @@
     <script>
         $('form').delegate('.barang', 'change', function() {
             var harga = $('.barang').find(':selected').attr('sell-price');
-            $('.harga').val(harga);
+            var hargafix = new Intl.NumberFormat("id-ID",{
+                                style : "currency",
+                                currency : "IDR"
+                            }).format(harga).replace(',00','').replace('Rp','');
+            $('.harga').val(hargafix);
             var stk = document.getElementById("stk").value;
-            var harga = document.getElementById("harga").value;
             var total = (stk * harga);
-            $('.total').val(total);
+            var totalfix = new Intl.NumberFormat("id-ID",{
+                                style : "currency",
+                                currency : "IDR"
+                            }).format(total).replace(',00','').replace('Rp','');
+            $('.total').val(totalfix);
         })
 
         $('form').delegate('.stk , .diskon', 'keyup', function() {
             var harga = $('.barang').find(':selected').attr('sell-price');
-            $('.harga').val(harga);
+            var hargafix = new Intl.NumberFormat("id-ID",{
+                                style : "currency",
+                                currency : "IDR"
+                            }).format(harga).replace(',00','').replace('Rp','');
+            $('.harga').val(hargafix);
             var stk = document.getElementById("stk").value;
-            var harga = document.getElementById("harga").value;
             var total = (stk * harga);
-            $('.total').val(total);
+            var totalfix = new Intl.NumberFormat("id-ID",{
+                                style : "currency",
+                                currency : "IDR"
+                            }).format(total).replace(',00','').replace('Rp','');
+            $('.total').val(totalfix);
         })
     </script>
 @endsection

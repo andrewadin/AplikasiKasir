@@ -24,12 +24,14 @@ class ItemController extends Controller
     }
 
     public function store(Request $request){
+        $buy_price = str_replace(",","",$request->buy_price);
+        $sell_price = str_replace(",","",$request->sell_price);
         Items::updateOrCreate([
             'id_category' => $request->category,
             'item_name' => $request->item_name,
             'stok' => $request->stok,
-            'buy_price' => $request->buy_price,
-            'sell_price' => $request->sell_price,
+            'buy_price' => $buy_price,
+            'sell_price' => $sell_price,
         ]);
 
         return redirect('/tabel/barang');
@@ -42,14 +44,16 @@ class ItemController extends Controller
     }
 
     public function update(Request $request, $id){
+        $buy_price = str_replace(",","",$request->buy_price);
+        $sell_price = str_replace(",","",$request->sell_price);
         Items::updateOrCreate(
             ['id' => $id],
             [
             'id_category' => $request->category,
             'item_name' => $request->item_name,
             'stok' => $request->stok,
-            'buy_price' => $request->buy_price,
-            'sell_price' => $request->sell_price,
+            'buy_price' => $buy_price,
+            'sell_price' => $sell_price,
         ]);
 
         return redirect('/tabel/barang');

@@ -13,6 +13,7 @@ class Transaction extends Model
         'id_item',
         'price',
         'qty',
+        'discount',
         'total',
     ];
 

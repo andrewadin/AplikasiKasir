@@ -19,17 +19,21 @@ class ExpensesController extends Controller
     }
 
     public function store(Request $request){
+        $item = Items::find($request->id);
+        $newstk = $request->stk + $item->stok;
+        $newharga = str_replace(".","",$request->harga);
+        $newtotal = str_replace(".","",$request->total);
         Items::updateOrCreate([
             'id' => $request->id],
         [
-            'stok' => $request->stk,
+            'stok' => $newstk,
         ]);
 
         Outcome::updateOrCreate([
             'id_item' => $request->id,
-            'price' => $request->harga,
+            'price' => $newharga,
             'qty' => $request->stk,
-            'total' => $request->total,
+            'total' => $newtotal,
         ]);
 
         return redirect('/laporan/pengeluaran');

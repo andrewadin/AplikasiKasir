@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_item');
             $table->double('price');
             $table->integer('qty');
+            $table->double('discount');
             $table->double('total');
             $table->timestamps();
 

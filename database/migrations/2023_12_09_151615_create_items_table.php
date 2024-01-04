@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('item_name');
             $table->integer('stok');
             $table->double('buy_price');
-            $table->duble('sell_price');
+            $table->double('sell_price');
             $table->timestamps();
 
             $table->foreign('id_category')
