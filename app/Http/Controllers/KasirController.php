@@ -24,10 +24,16 @@ class KasirController extends Controller
             $item = Items::find($request->barang[$barang]);
             $stk = $item->stok;
             $newstk = $stk - $request->stk[$barang];
+            $stko = $request->stk[$barang];
             $harga = $request->harga[$barang];
             $total = $request->total[$barang];
             $newharga = str_replace(".","",$harga);
             $newtotal = str_replace(".","",$total);
+
+            $items[] = $item->item_name;
+            $hargas[] = $harga;
+            $stks[] = $stko;
+            $totals[] = $total;
 
             Items::updateOrCreate([
                 'id' => $request->barang[$barang]
@@ -44,7 +50,9 @@ class KasirController extends Controller
             ]);
         }
 
-        // return view('layouts/receipt',['receipt' => $request->all()]);
-        return redirect('/kasir');
+        // dump($items);
+        // dump($hargas);
+        return view('layouts/receipt',['receipt' => $request->all(), 'items' => $items, 'harga' => $hargas, 'stks' => $stks, 'total' => $totals]);
+        // return redirect('/kasir');
     }
 }

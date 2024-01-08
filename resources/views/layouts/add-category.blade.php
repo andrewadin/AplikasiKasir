@@ -32,7 +32,12 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Kategori</label>
-                                    <input type="text" class="form-control" placeholder="Masukkkan nama kategori" name="category" required>
+                                    <input type="text" class="form-control @error('category') is-invalid @enderror" placeholder="Masukkkan nama kategori" name="category" required>
+                                    @error('category')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</button>
