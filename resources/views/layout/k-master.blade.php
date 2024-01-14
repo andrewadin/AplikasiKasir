@@ -86,23 +86,7 @@
                 <div class="tab-pane animated fadeIn active" id="hr_menu">
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
-                            <li><a href="{{ route('home') }}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
-                            <li><a href="{{ route('kasir') }}"><i class="fa fa-money" aria-hidden="true"></i>Kasir</a></li>
-                            <li>
-                                <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Tabel</span></a>
-                                <ul>
-                                    <li><a href="{{ route('kategori') }}">Kategori</a></li>
-                                    <li><a href="{{ route('barang') }}">Barang</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#Report" class="has-arrow"><i class="icon-bar-chart"></i><span>Laporan</span></a>
-                                <ul>
-                                    <li><a href="{{ route('pengeluaran') }}">Pengeluaran</a></li>
-                                    <li><a href="{{ route('pemasukan') }}">Pemasukan</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{{ route('users') }}"><i class="icon-user"></i>Pengguna / User</a></li>
+                            <li><a href="{{ route('khome') }}"><i class="fa fa-money" aria-hidden="true"></i>Kasir</a></li>
                         </ul>
                     </nav>
                 </div>

@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('title')
+    Laporan Pengeluaran
+@endsection
 @section('content')
 <div id="main-content">
     <div class="container-fluid">

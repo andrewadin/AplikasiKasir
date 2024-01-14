@@ -1,15 +1,18 @@
 @extends('layout.master')
+@section('title')
+    Laporan Pemasukan
+@endsection
 @section('content')
 <div id="main-content">
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12">
-                    <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Halaman Pendapatan</h2>
+                    <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Halaman Pemasukan</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route ('home')}}"><i class="icon-home"></i></a></li>
                         <li class="breadcrumb-item">Laporan</li>
-                        <li class="breadcrumb-item active">Pendapatan</li>
+                        <li class="breadcrumb-item active">Pemasukan</li>
                     </ul>
                 </div>
             </div>

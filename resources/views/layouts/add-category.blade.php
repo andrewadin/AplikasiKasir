@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('title')
+    Tambah Kategori
+@endsection
 @section('css')
 <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css')}}">
 <link rel="stylesheet" href="{{asset('assets/vendor/parsleyjs/css/parsley.css')}}">

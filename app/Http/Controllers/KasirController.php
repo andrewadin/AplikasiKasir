@@ -19,40 +19,50 @@ class KasirController extends Controller
     }
 
     public function store(Request $request){
-        // return $request->all();
-        for ($barang = 0; $barang < count($request->barang); $barang++){
-            $item = Items::find($request->barang[$barang]);
-            $stk = $item->stok;
-            $newstk = $stk - $request->stk[$barang];
-            $stko = $request->stk[$barang];
-            $harga = $request->harga[$barang];
-            $total = $request->total[$barang];
-            $newharga = str_replace(".","",$harga);
-            $newtotal = str_replace(".","",$total);
+        if (str_replace(",","",$request->uang_bayar) >= $request->totalall) {
+            for ($barang = 0; $barang < count($request->barang); $barang++){
+                $item = Items::find($request->barang[$barang]);
+                $stk = $item->stok;
+                $newstk = $stk - $request->stk[$barang];
+                $stko = $request->stk[$barang];
+                $harga = $request->harga[$barang];
+                $total = $request->total[$barang];
+                $newharga = str_replace(".","",$harga);
+                $newtotal = str_replace(".","",$total);
 
-            $items[] = $item->item_name;
-            $hargas[] = $harga;
-            $stks[] = $stko;
-            $totals[] = $total;
+                $items[] = $item->item_name;
+                $hargas[] = $harga;
+                $stks[] = $stko;
+                $totals[] = $total;
 
-            Items::updateOrCreate([
-                'id' => $request->barang[$barang]
-            ],[
-                'stok' => $newstk,
-            ]);
+                Items::updateOrCreate([
+                    'id' => $request->barang[$barang]
+                ],[
+                    'stok' => $newstk,
+                ]);
 
-            Transaction::updateOrCreate([
-                'id_item' => $request->barang[$barang],
-                'price' => $newharga,
-                'qty' => $newstk,
-                'discount' => $request->diskon[$barang],
-                'total' => $newtotal,
-            ]);
+                Transaction::updateOrCreate([
+                    'id_item' => $request->barang[$barang],
+                    'price' => $newharga,
+                    'qty' => $newstk,
+                    'discount' => $request->diskon[$barang],
+                    'total' => $newtotal,
+                ]);
+            }
+
+            // dump($items);
+            // dump($hargas);
+            if (auth()->user()->type == 'admin') {
+                return view('layouts/receipt',['receipt' => $request->all(), 'items' => $items, 'harga' => $hargas, 'stks' => $stks, 'total' => $totals]);
+            }else{
+                return view('layouts/k-receipt',['receipt' => $request->all(), 'items' => $items, 'harga' => $hargas, 'stks' => $stks, 'total' => $totals]);
+            }
+        } else {
+            if (auth()->user()->type == 'admin') {
+                return redirect('/kasir');
+            }else{
+                return redirect('/khome');
+            } 
         }
-
-        // dump($items);
-        // dump($hargas);
-        return view('layouts/receipt',['receipt' => $request->all(), 'items' => $items, 'harga' => $hargas, 'stks' => $stks, 'total' => $totals]);
-        // return redirect('/kasir');
     }
 }

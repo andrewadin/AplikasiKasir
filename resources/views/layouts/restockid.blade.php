@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('title')
+    Restock
+@endsection
 @section('content')
     <div id="main-content">
         <div class="container-fluid">

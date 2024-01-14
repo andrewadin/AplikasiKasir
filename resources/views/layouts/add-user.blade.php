@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('title')
+    Tambah User
+@endsection
 @section('content')
     <div id="main-content">
         <div class="container-fluid">
@@ -62,10 +65,10 @@
                                 </div>
                                 <div class="form-group">
                                     <span>Role user</span>
-                                    <select name="level" id="level"
-                                        class="form-control  @error('level') is-invalid @enderror">
-                                        <option value="admin">Admin</option>
-                                        <option value="kasir">Kasir</option>
+                                    <select name="type" id="type"
+                                        class="form-control  @error('type') is-invalid @enderror">
+                                        <option value="0">Admin</option>
+                                        <option value="1">Kasir</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

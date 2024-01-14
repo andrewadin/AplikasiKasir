@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.k-master')
 @section('title')
     Invoice
 @endsection
@@ -11,7 +11,7 @@
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
                                     class="fa fa-arrow-left"></i></a> Halaman Invoice</h2>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('kasir') }}"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('khome') }}"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item">Invoice</li>
                         </ul>
                     </div>
@@ -21,7 +21,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
-                            <a class="btn btn-primary pull-right" href="{{ route('home')}}">Kembali Ke Kasir</a>
+                            <a class="btn btn-primary pull-right" href="{{ route('khome')}}">Kembali Ke Kasir</a>
                             <div class="table-responsive">
                                 <table class="table table-borderless table-hover" id="dataTable">
                                     <thead>

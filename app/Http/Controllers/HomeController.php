@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Items;
 use App\Models\Outcome;
 use App\Models\Transaction;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +25,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function kasirindex()
+    {
+        $barang = Items::all();
+        return view('layouts/k-kasir',['barang' => $barang]);
+    }
+
     public function index()
     {
         $items = Items::all();

@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('title')
+    Tabel Barang
+@endsection
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 @endsection

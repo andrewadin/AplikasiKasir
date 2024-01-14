@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
@@ -41,5 +43,26 @@ class LoginController extends Controller
     public function username()
     {
         return 'username';
+    }
+
+    public function login(Request $request): RedirectResponse
+
+    {
+        $input = $request->all();
+        $this->validate($request, [
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        if(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])))
+        {
+            if (auth()->user()->type == 'admin') {
+                return redirect()->route('home');
+            }else{
+                return redirect()->route('khome');
+            }
+        }else{
+            return redirect()->route('login')
+                ->with('error','Email-Address And Password Are Wrong.');
+        }
     }
 }

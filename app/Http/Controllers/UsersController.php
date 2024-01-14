@@ -27,14 +27,13 @@ class UsersController extends Controller
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'level' => 'required|string|min:4',
         ]);
 
         User::updateOrCreate([
             'name' => $data['name'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
-            'level' => $data['level'],
+            'type' => $request->type,
         ]);
 
         return redirect('/users');
@@ -49,7 +48,7 @@ class UsersController extends Controller
         User::updateOrCreate([
             'id' => $id],
             ['name' => $request->name,
-            'level' => $request->level,
+            'type' => $request->type,
         ]);
 
         return redirect('/users');

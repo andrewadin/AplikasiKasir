@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('title')
+    Tabel User
+@endsection
 @section('content')
 <div id="main-content">
     <div class="container-fluid">
@@ -40,10 +43,10 @@
                                             <h6 class="mb-0">{{ $u->name }}</h6>
                                             <span>{{ $u->username }}</span>
                                         </td>
-                                        @if ($u->level == "admin")
-                                        <td><span class="badge badge-danger">{{ $u->level }}</span></td>
+                                        @if ($u->type == 0)
+                                        <td><span class="badge badge-danger"> Admin </span></td>
                                         @else
-                                        <td><span class="badge badge-success">{{ $u->level }}</span></td>
+                                        <td><span class="badge badge-success"> Kasir </span></td>
                                         @endif
                                         <td>{{ $u->created_at }}</td>
                                         <td>

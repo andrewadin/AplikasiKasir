@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.k-master')
 @section('title')
     Kasir
 @endsection
@@ -11,7 +11,7 @@
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
                                     class="fa fa-arrow-left"></i></a> Kasir</h2>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('kasir')}}"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="{{route('khome')}}"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item active">Kasir</li>
                         </ul>
                     </div>
@@ -24,7 +24,7 @@
                         <div class="header">
                             <h2>Halaman Kasir</h2>
                         </div>
-                        <form action="{{ route('kasir-store') }}" method="post">
+                        <form action="{{ route('kasir-kstore') }}" method="post">
                             @csrf
                             <div class="body">
                                 <table class="table table-striped">
