@@ -26,7 +26,7 @@ class CategoryController extends Controller
             'category' => $request->category,
         ]);
 
-        return redirect('/tabel/kategori');
+        return redirect('/tabel/kategori')->with('alert','Penambahan kategori berhasil');
     }
 
     public function edit($id){
@@ -39,11 +39,11 @@ class CategoryController extends Controller
             ['id' => $id],
             ['category' => $request->category,
         ]);
-        return redirect('/tabel/kategori');
+        return redirect('/tabel/kategori')->with('alert','Perubahan kategori berhasil');
     }
 
     public function delete(Request $request){
         Category::where('id', $request->id)->delete();
-        return redirect('/tabel/kategori');
+        return redirect('/tabel/kategori')->with('alert','Hapus kategori berhasil');
     }
 }

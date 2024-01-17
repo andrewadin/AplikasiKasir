@@ -36,6 +36,6 @@ class ExpensesController extends Controller
             'total' => $newtotal,
         ]);
 
-        return redirect('/laporan/pengeluaran');
+        return redirect('/home')->with('alert','Restock berhasil');
     }
 }

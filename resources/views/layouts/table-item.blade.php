@@ -85,8 +85,10 @@
 @section('script')
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <script>
-        let table = new DataTable('#Tableitem', {
-            responsive: true
-        });
+        var msg = '{{Session::get('alert')}}';
+        var exist = '{{Session::has('alert')}}';
+        if(exist){
+            alert(msg);
+        }
     </script>
 @endsection

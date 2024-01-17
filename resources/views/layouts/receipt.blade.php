@@ -28,7 +28,7 @@
                                         <tr>
                                             <th>Nama Produk</th>
                                             <th>Harga</th>
-                                            <th>Kuantitas</th>
+                                            <th>Qty</th>
                                             <th>Total</th>
                                         </tr>
                                     </thead>
@@ -88,7 +88,7 @@
                 extend: 'print',
                 customize: function ( win ) {
                     $(win.document.body)
-                        .css( 'font-size', '25pt' );
+                        .css( 'font-size', '24pt' );
 
                     $(win.document.body).find( 'table' )
                         .addClass( 'compact' )

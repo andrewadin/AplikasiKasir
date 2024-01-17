@@ -34,7 +34,7 @@ class ItemController extends Controller
             'sell_price' => $sell_price,
         ]);
 
-        return redirect('/tabel/barang');
+        return redirect('/tabel/barang')->with('alert','Penambahan produk berhasil');
     }
 
     public function edit($id){
@@ -56,12 +56,12 @@ class ItemController extends Controller
             'sell_price' => $sell_price,
         ]);
 
-        return redirect('/tabel/barang');
+        return redirect('/tabel/barang')->with('alert','Perubahan produk berhasil');
     }
 
     public function delete(Request $request){
         Items::where('id', $request->id)->delete();
-        return redirect('/tabel/barang');
+        return redirect('/tabel/barang')->with('alert','Hapus produk berhasil');
     }
 
     public function restock(){
