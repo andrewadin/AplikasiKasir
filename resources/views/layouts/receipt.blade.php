@@ -1,101 +1,174 @@
-@extends('layout.master')
-@section('title')
-    Invoice
-@endsection
-@section('content')
-    <div id="main-content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <div class="row">
-                    <div class="col-lg-6 col-md-8 col-sm-12">
-                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
-                                    class="fa fa-arrow-left"></i></a> Halaman Invoice</h2>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('kasir') }}"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item">Invoice</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="body">
-                            <a class="btn btn-primary pull-right" href="{{ route('home')}}">Kembali Ke Kasir</a>
-                            <div class="table-responsive">
-                                <table class="table table-borderless table-hover" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama Produk</th>
-                                            <th>Harga</th>
-                                            <th>Qty</th>
-                                            <th>Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @for ($i = 0; $i < count($items); $i++)
-                                            <tr>
-                                                <td>
-                                                    {{ $items[$i] }}
-                                                </td>
-                                                <td>
-                                                    Rp.{{ $harga[$i] }}
-                                                </td>
-                                                <td>
-                                                    {{ $stks[$i] }}
-                                                </td>
-                                                <td>
-                                                    Rp. {{ $total[$i] }}
-                                                </td>
-                                            </tr>
-                                        @endfor
-                                        <tr>
-                                            <td>Grand Total</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>Rp. {{ number_format($receipt['totalall'], 0, ',', '.') }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Uang yang dibayar</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>Rp. {{ number_format(str_replace(',', '', $receipt['uang_bayar']), 0, ',', '.') }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kembalian</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>Rp. {{ number_format(str_replace(',', '', $receipt['kembalian']), 0, ',', '.') }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
-@section('script')
-    <script>
-        $('#dataTable').dataTable( {
-            "paging": false,
-            "ordering": false,
-            dom: 'Bfrtip',
-            buttons: [
-            {
-                extend: 'print',
-                customize: function ( win ) {
-                    $(win.document.body)
-                        .css( 'font-size', '24pt' );
+<!DOCTYPE html>
+<html lang="en" >
 
-                    $(win.document.body).find( 'table' )
-                        .addClass( 'compact' )
-                        .css( 'font-size', 'inherit' );
-                }
-            }
-        ]
-        } );
-    </script>
-@endsection
+<head>
+
+  <meta charset="UTF-8">
+  <title>Template Faktur Untuk Kasir HTML</title>
+
+  <style>
+@media print {
+    .page-break { display: block; page-break-before: always; }
+}
+      #invoice-POS {
+  box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+  padding: 2mm;
+  margin: 0 auto;
+  width: 44mm;
+  background: #FFF;
+}
+#invoice-POS ::selection {
+  background: #f31544;
+  color: #FFF;
+}
+#invoice-POS ::moz-selection {
+  background: #f31544;
+  color: #FFF;
+}
+#invoice-POS h1 {
+  font-size: 1.5em;
+  color: #222;
+}
+#invoice-POS h2 {
+  font-size: .9em;
+}
+#invoice-POS h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+}
+#invoice-POS p {
+  font-size: .7em;
+  color: #666;
+  line-height: 1.2em;
+}
+#invoice-POS #top, #invoice-POS #mid, #invoice-POS #bot {
+  /* Targets all id with 'col-' */
+  border-bottom: 1px solid #EEE;
+}
+#invoice-POS #top {
+  min-height: 100px;
+}
+#invoice-POS #mid {
+  min-height: 80px;
+}
+#invoice-POS #bot {
+  min-height: 50px;
+}
+#invoice-POS .info {
+  display: block;
+  margin-left: 0;
+}
+#invoice-POS .title {
+  float: right;
+}
+#invoice-POS .title p {
+  text-align: right;
+}
+#invoice-POS table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#invoice-POS .tabletitle {
+  font-size: .5em;
+  background: #EEE;
+}
+#invoice-POS .service {
+  border-bottom: 1px solid #EEE;
+}
+#invoice-POS .item {
+  width: 24mm;
+}
+#invoice-POS .itemtext {
+  font-size: .5em;
+}
+#invoice-POS #legalcopy {
+  margin-top: 5mm;
+}
+
+    </style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+
+
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+
+
+  <div id="invoice-POS">
+
+    <div id="mid">
+      <div class="info">
+        <h2>Info Kontak</h2>
+        <p>
+           Alamat : Pekanbaru RIAU</br>
+            Email  : xxxxxx@gmail.com</br>
+            Telephone   : 08521361xxxx</br>
+        </p>
+      </div>
+    </div><!--End Invoice Mid-->
+
+    <div id="bot">
+
+                    <div id="table">
+                        <table>
+                            <tr class="tabletitle">
+                                <td class="item"><h2>Item</h2></td>
+                                <td class="Hours"><h2>Qty</h2></td>
+                                <td class="Rate"><h2>Sub Total</h2></td>
+                            </tr>
+                            @for ($i = 0; $i < count($items); $i++)
+                                <tr class="service">
+                                    <td class="tableitem"><p class="itemtext">{{ $items[$i] }}</p></td>
+                                    <td class="tableitem"><p class="itemtext">{{ $stk[$i] }}</p></td>
+                                    <td class="tableitem"><p class="itemtext">Rp. {{ $harga[$i] }}</p></td>
+                                </tr>
+                            @endfor
+
+                            <tr class="tabletitle">
+                                <td></td>
+                                <td class="Rate"><h2>Total</h2></td>
+                                <td class="payment"><h2>Rp. {{number_format($receipt['totalall']),0,',','.'}}</h2></td>
+                            </tr>
+
+                            <tr class="tabletitle">
+                                <td></td>
+                                <td class="Rate"><h2>Tunai</h2></td>
+                                <td class="payment"><h2>Rp. {{$receipt['uang_bayar']}}</h2></td>
+                            </tr>
+
+                            <tr class="tabletitle">
+                                <td></td>
+                                <td class="Rate"><h2>Kembalian</h2></td>
+                                <td class="payment"><h2>Rp. {{$receipt['kembalian']}}</h2></td>
+                            </tr>
+
+                        </table>
+                    </div><!--End Table-->
+
+                    <div id="legalcopy">
+                        <p class="legal"><strong>Terimakasih Telah Berbelanja!</strong>  Barang yang sudah dibeli tidak dapat dikembalikan. Jangan lupa berkunjung kembali
+                        </p>
+                    </div>
+
+                </div><!--End InvoiceBot-->
+  </div><!--End Invoice-->
+
+  <script>
+    window.print()
+    var url = '{{ route("kasir") }}';
+    window.location.href=url;
+  </script>
+</body>
+</html>

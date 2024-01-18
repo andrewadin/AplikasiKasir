@@ -53,19 +53,19 @@ class KasirController extends Controller
                 $totals[] = $total;
 
                 if ($request->stk[$barang] <= $stk) {
-                    Items::updateOrCreate([
-                        'id' => $request->barang[$barang]
-                    ],[
-                        'stok' => $newstk,
-                    ]);
+                    // Items::updateOrCreate([
+                    //     'id' => $request->barang[$barang]
+                    // ],[
+                    //     'stok' => $newstk,
+                    // ]);
 
-                    Transaction::updateOrCreate([
-                        'id_item' => $request->barang[$barang],
-                        'price' => $newharga,
-                        'qty' => $newstk,
-                        'discount' => $request->diskon[$barang],
-                        'total' => $newtotal,
-                    ]);
+                    // Transaction::updateOrCreate([
+                    //     'id_item' => $request->barang[$barang],
+                    //     'price' => $newharga,
+                    //     'qty' => $newstk,
+                    //     'discount' => $request->diskon[$barang],
+                    //     'total' => $newtotal,
+                    // ]);
                 } else {
                     if (auth()->user()->type == 'admin') {
                         return redirect('/kasir')->with('alert','Stok '.$items[$barang].' kurang atau habis !');
@@ -95,18 +95,15 @@ class KasirController extends Controller
 
             if (auth()->user()->type == 'admin') {
                 return redirect('/kasir')->with('alert','Pembayaran berhasil');
+                // return view('layouts/receipt',['items' => $items, 'harga' => $hargas, 'stk' => $stks, 'total' => $totals, 'receipt' => $request->all()]);
             }else{
                 return redirect('/khome')->with('alert','Pembayaran berhasil');
+                // return view('layouts/receipt',['items' => $items, 'harga' => $hargas, 'stk' => $stks, 'total' => $totals, 'receipt' => $request->all()]);
             }
         } else {
             if (auth()->user()->type == 'admin') {
                 return redirect('/kasir')->with('alert','Uang pembayaran kurang !');
             }else{
-                ?>
-                <script>
-                    alert('Uang pembayaran kurang !');
-                </script>
-                <?php
                 return redirect('/khome')->with('alert','Uang pembayaran kurang !');
             }
         }
