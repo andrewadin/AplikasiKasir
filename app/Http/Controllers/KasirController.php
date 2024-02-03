@@ -21,15 +21,17 @@ class KasirController extends Controller
 
     public function store(Request $request){
         if (str_replace(",","",$request->uang_bayar) >= $request->totalall) {
-            $mid = '123123456';
-            $store_name = 'YOURMART';
+            $mid = '115607089952';
+            $store_name = 'Lugusranu';
             $store_address = 'Mart Address';
-            $store_phone = '1234567890';
-            $store_email = 'yourmart@email.com';
-            $store_website = 'yourmart.com';
+            $store_phone = '08199909999';
+            $store_email = 'lugusranu.shop@gmail.com';
+            $store_website = 'lugusranu.com';
             $tax_percentage = 0;
             $transaction_id = 'TX';
             $currency = 'Rp';
+            $image_path = 'logo.png';
+
 
             $printer = new ReceiptPrinter;
             $printer->init(
@@ -86,8 +88,7 @@ class KasirController extends Controller
             // dump($hargas);
 
             $printer->setStore($mid, $store_name, $store_address, $store_phone, $store_email, $store_website);
-
-
+            $printer->setLogo($image_path);
             $printer->calculateSubTotal();
             $printer->calculateGrandTotal();
 

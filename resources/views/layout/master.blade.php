@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-<title>:: Lucid HR :: @yield('title')</title>
+<title>:: Lugusranu :: @yield('title')</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="description" content="Lucid Bootstrap 4x Admin Template">
 <meta name="author" content="WrapTheme, design by: ThemeMakker.com">
 
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="{{asset('assets/images/logo.jpg')}}" type="image/x-icon">
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -33,7 +33,7 @@
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
-        <div class="m-t-30"><img src="{{asset('assets/images/logo-icon.svg')}}" width="48" height="48" alt="Lucid"></div>
+        <div class="m-t-30"><img src="{{asset('assets/images/logo.jpg')}}" width="48" height="48" alt="Lucid"></div>
         <p>Please wait...</p>
     </div>
 </div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="navbar-brand">
-                <a href="index.html"><img src="{{asset('assets/images/logo.svg')}}" alt="Lucid Logo" class="img-responsive logo"></a>
+                <a href="{{route('home')}}"><img src="{{asset('assets/images/small_cion.png')}}"></a>
             </div>
 
             <div class="navbar-right">
@@ -54,6 +54,9 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('logout') }}" class="icon-menu" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"><i class="icon-login"></i></a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -89,7 +92,7 @@
                             <li><a href="{{ route('home') }}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
                             <li><a href="{{ route('kasir') }}"><i class="fa fa-money" aria-hidden="true"></i>Kasir</a></li>
                             <li>
-                                <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Tabel</span></a>
+                                <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Barang</span></a>
                                 <ul>
                                     <li><a href="{{ route('kategori') }}">Kategori</a></li>
                                     <li><a href="{{ route('barang') }}">Barang</a></li>

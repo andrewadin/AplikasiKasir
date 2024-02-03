@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-<title>:: Lucid HR :: @yield('title')</title>
+<title>:: Lugusranu :: @yield('title')</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="description" content="Lucid Bootstrap 4x Admin Template">
 <meta name="author" content="WrapTheme, design by: ThemeMakker.com">
 
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="{{asset('assets/images/logo.jpg')}}" type="image/x-icon">
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -54,6 +54,9 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('logout') }}" class="icon-menu" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"><i class="icon-login"></i></a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
                 </div>
             </div>

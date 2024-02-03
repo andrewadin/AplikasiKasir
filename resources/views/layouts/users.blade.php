@@ -43,7 +43,7 @@
                                             <h6 class="mb-0">{{ $u->name }}</h6>
                                             <span>{{ $u->username }}</span>
                                         </td>
-                                        @if ($u->type == 0)
+                                        @if ($u->type == 'admin')
                                         <td><span class="badge badge-danger"> Admin </span></td>
                                         @else
                                         <td><span class="badge badge-success"> Kasir </span></td>
