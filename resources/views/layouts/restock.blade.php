@@ -35,21 +35,29 @@
                                     <select name="id" id="id" class="form-control barang" required>
                                         <option value="">---- Pilih Produk ---- </option>
                                         @foreach ($barang as $b)
-                                        <option sell-price="{{ $b->sell_price }}" value="{{ $b->id }}">{{ $b->item_name }}</option>
+                                        <option item_name="{{ $b->item_name }}" value="{{ $b->id }}">{{ $b->item_name }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <span> Nama barang </span>
+                                    <input type="text" class="form-control nama_barang" name="nama_barang" required>
                                 </div>
                                 <div class="form-group">
                                     <span>Banyaknya yang di beli</span>
                                     <input class="form-control stk" type="number" name="stk" id="stk" required>
                                 </div>
                                 <div class="form-group">
-                                    <span>Harga</span>
-                                    <input class="form-control harga" type="text" name="harga" id="harga" readonly>
+                                    <span> Harga Beli </span>
+                                    <input class="form-control harga_beli" type="text" name="harga_beli" id="harga_beli" required>
+                                </div>
+                                <div class="form-group">
+                                    <span> Harga Jual </span>
+                                    <input type="text" class="form-control harga_jual" name="harga_jual" id="harga_jual" required>
                                 </div>
                                 <div class="form-group">
                                     <span>Total</span>
-                                    <input class="form-control total" type="text" name="total" id="total" readonly>
+                                    <input class="form-control total" type="text" name="total" id="total" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary" onclick="return confirm('Apakah anda sudah yakin ?')">Re - stock</button>
                                 <a href="{{ route('barang')}}" class="btn btn-danger">Kembali</a>
@@ -64,13 +72,20 @@
 
 @section('script')
     <script>
+        new AutoNumeric('#harga_jual', {
+        digitGroupSeparator: ',',
+        decimalPlaces: 0,
+        });
+
+        new AutoNumeric('#harga_beli', {
+        digitGroupSeparator: ',',
+        decimalPlaces: 0,
+        });
+
         $('form').delegate('.barang', 'change', function() {
-            var harga = $('.barang').find(':selected').attr('sell-price');
-            var hargafix = new Intl.NumberFormat("id-ID",{
-                                style : "currency",
-                                currency : "IDR"
-                            }).format(harga).replace(',00','').replace('Rp','');
-            $('.harga').val(hargafix);
+            var nama = tr.find('.barang option:selected').attr('item_name');
+            tr.find('.nama_barang').val(nama);
+            var harga = $('.harga_beli').val().replaceAll(',','') - 0;
             var stk = document.getElementById("stk").value;
             var total = (stk * harga);
             var totalfix = new Intl.NumberFormat("id-ID",{
@@ -80,13 +95,8 @@
             $('.total').val(totalfix);
         })
 
-        $('form').delegate('.stk , .diskon', 'keyup', function() {
-            var harga = $('.barang').find(':selected').attr('sell-price');
-            var hargafix = new Intl.NumberFormat("id-ID",{
-                                style : "currency",
-                                currency : "IDR"
-                            }).format(harga).replace(',00','').replace('Rp','');
-            $('.harga').val(hargafix);
+        $('form').delegate('.stk , .harga_beli', 'keyup', function() {
+            var harga = $('.harga_beli').val().replaceAll(',','') - 0;
             var stk = document.getElementById("stk").value;
             var total = (stk * harga);
             var totalfix = new Intl.NumberFormat("id-ID",{

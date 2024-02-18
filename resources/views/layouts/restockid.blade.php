@@ -24,34 +24,41 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card planned_task">
                         <div class="header">
-                            <h2>Stater Page</h2>
+                            <h2>Restock barang</h2>
                         </div>
                         <div class="body">
                             <form action="{{ route('restock') }}" method="post" class="form-change">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <span>Produk</span>
                                     <select name="id" id="id" class="form-control barang" required
-                                        @readonly(true)>
+                                        style="display: none">
                                         <option value="">---- Pilih Produk ---- </option>
                                         @foreach ($barang as $b)
-                                            <option sell-price="{{ $b->sell_price }}" value="{{ $b->id }}"
+                                            <option value="{{ $b->id }}" item-name="{{$b->item_name}}"
                                                 @selected($sbarang->id == $b->id)>{{ $b->item_name }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <span>Nama produk</span>
+                                    <input type="text" class="form-control nama_barang" name="nama_barang" id="nama_barang" value="{{$sbarang['item_name']}}" required>
                                 </div>
                                 <div class="form-group">
                                     <span>Banyaknya yang di beli</span>
                                     <input class="form-control stk" type="number" name="stk" id="stk" required>
                                 </div>
                                 <div class="form-group">
-                                    <span>Harga</span>
-                                    <input class="form-control harga" type="text" name="harga" id="harga" readonly>
+                                    <span>Harga jual</span>
+                                    <input class="form-control harga_jual" type="text" name="harga_jual" id="harga_jual" value="{{$sbarang['sell_price']}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <span>Harga beli</span>
+                                    <input class="form-control harga_beli" type="text" name="harga_beli" id="harga_beli" value="{{$sbarang['buy_price']}}" required>
                                 </div>
                                 <div class="form-group">
                                     <span>Total</span>
-                                    <input class="form-control total" type="text" name="total" id="total" readonly>
+                                    <input class="form-control total" type="text" name="total" id="total" readonly required>
                                 </div>
                                 <button type="submit" class="btn btn-primary"
                                     onclick="return confirm('Apakah anda sudah yakin ?')">Re - stock</button>
@@ -67,13 +74,20 @@
 
 @section('script')
     <script>
+        new AutoNumeric('#harga_jual', {
+        digitGroupSeparator: ',',
+        decimalPlaces: 0,
+        });
+
+        new AutoNumeric('#harga_beli', {
+        digitGroupSeparator: ',',
+        decimalPlaces: 0,
+        });
+
         $('form').delegate('.barang', 'change', function() {
-            var harga = $('.barang').find(':selected').attr('sell-price');
-            var hargafix = new Intl.NumberFormat("id-ID",{
-                                style : "currency",
-                                currency : "IDR"
-                            }).format(harga).replace(',00','').replace('Rp','');
-            $('.harga').val(hargafix);
+            var nama = tr.find('.id option:selected').attr('item-name');
+            tr.find('.nama_barang').val(nama);
+            var harga = $('.harga_beli').val().replaceAll(',','') - 0;
             var stk = document.getElementById("stk").value;
             var total = (stk * harga);
             var totalfix = new Intl.NumberFormat("id-ID",{
@@ -83,13 +97,8 @@
             $('.total').val(totalfix);
         })
 
-        $('form').delegate('.stk , .diskon', 'keyup', function() {
-            var harga = $('.barang').find(':selected').attr('sell-price');
-            var hargafix = new Intl.NumberFormat("id-ID",{
-                                style : "currency",
-                                currency : "IDR"
-                            }).format(harga).replace(',00','').replace('Rp','');
-            $('.harga').val(hargafix);
+        $('form').delegate('.stk , .harga_beli', 'keyup', function() {
+            var harga = $('.harga_beli').val().replaceAll(',','') - 0;
             var stk = document.getElementById("stk").value;
             var total = (stk * harga);
             var totalfix = new Intl.NumberFormat("id-ID",{

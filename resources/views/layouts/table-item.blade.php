@@ -59,9 +59,9 @@
                                                         @csrf
                                                         @method('DELETE')
                                                         <input type="hidden" name="id" value="{{ $b->id }}">
-                                                        <a href="{{ route('barang-edit', $b->id) }}"
+                                                        <a href="{{ route('barang-restockid', $b->id) }}"
                                                             class="btn btn-success"><i class="fa fa-pencil-square-o"
-                                                                aria-hidden="true"></i>
+                                                                aria-hidden="true"></i> Restock / Edit
                                                         </a>
                                                         <button type="submit" class="btn btn-danger"
                                                             onclick="return confirm('Apakah anda yakin untuk menghapus produk ini?')"><i
