@@ -33,18 +33,18 @@
                                     <span>Nama user</span>
                                     <input type="text" name="name" id="name"
                                         class="form-control  @error('name') is-invalid @enderror" value="{{ $users->name }}">
-                                </div>
-                                @error('name')
+                                        @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                </div>
                                 <div class="form-group">
                                     <span>Role user</span>
                                     <select name="type" id="type"
                                         class="form-control  @error('type') is-invalid @enderror">
-                                        <option value="0">Admin</option>
-                                        <option value="1">Kasir</option>
+                                        <option value="0" @selected('admin' == $users->type)>Admin</option>
+                                        <option value="1" @selected('kasir' == $users->type)>Kasir</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

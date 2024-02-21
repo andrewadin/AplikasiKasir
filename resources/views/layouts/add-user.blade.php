@@ -11,7 +11,7 @@
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
                                     class="fa fa-arrow-left"></i></a> Halaman Tambah User</h2>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item">User</li>
                             <li class="breadcrumb-item active">Tambah User</li>
                         </ul>
@@ -32,34 +32,35 @@
                                     <span>Nama user</span>
                                     <input type="text" name="name" id="name"
                                         class="form-control  @error('name') is-invalid @enderror">
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                                 <div class="form-group">
                                     <span>Username</span>
                                     <input type="text" name="username" id="username"
                                         class="form-control  @error('username') is-invalid @enderror">
+                                    @error('username')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+
                                 <div class="form-group">
                                     <span>Password</span>
                                     <input type="password" name="password" id="password"
                                         class="form-control  @error('password') is-invalid @enderror">
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                                 <div class="form-group">
-                                    <span>Confirm password</span>
+                                    <span>Konfirmasi password</span>
                                     <input type="password" name="password_confirmation" id="password-confirm"
                                         class="form-control">
                                 </div>

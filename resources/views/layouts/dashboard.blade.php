@@ -115,15 +115,16 @@
 
 <script>
 var mdata =  <?php echo json_encode($mdataget) ?>;
+var day =  <?php echo json_encode($day) ?>;
 Highcharts.chart('newchart',{
         title : {
-            text : 'Penjualan di tahun 2023'
+            text : 'Penjualan di tahun 2024'
         },
         subtitle : {
-            text : 'Hasil Penjualan di tahun 2023'
+            text : 'Hasil Penjualan di bulan <?php echo date("M") ?>'
         },
         xAxis : {
-            categories : ['Minggu 1','Minggu 2','Minggu 3','Minggu 4']
+            categories : day
         },
         yAxis : {
             title : {
@@ -141,7 +142,7 @@ Highcharts.chart('newchart',{
             }
         },
         series : [{
-            name : 'Jumlah transaksi',
+            name : 'Hasil dari penjualan',
             data : mdata
         }],
         responsive : {

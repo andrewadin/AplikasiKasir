@@ -41,10 +41,17 @@ class HomeController extends Controller
         $income = Transaction::all()->sum('total');
         $expenses = Outcome::all()->sum('total');
 
-        $mdataget = Transaction::select(DB::raw("COUNT(*) as count"))
-                -> whereYear('created_at',(date('Y')))
-                -> groupBy(DB::raw("Month(created_at)"))
-                ->pluck('count');
-        return view('layouts/dashboard',['items' => $items, 'income' => $income, 'expenses' => $expenses, 'stock' => $stock, 'nstock' => $nstock], compact('mdataget'));
+        $mdataget = Transaction::select(DB::raw("SUM(total) as sum"))
+                -> whereMonth('created_at',(date('m')))
+                -> groupBy(DB::raw("Day(created_at)"))
+                -> pluck('sum');
+
+        $day = Transaction::select(DB::raw("DAY(created_at) as day"))
+                -> whereMonth('created_at',(date('m')))
+                -> groupBy(DB::raw("Day(created_at)"))
+                -> pluck('day');
+        // dump($mdataget);
+        // dump($day);
+        return view('layouts/dashboard',['items' => $items, 'income' => $income, 'expenses' => $expenses, 'stock' => $stock, 'nstock' => $nstock], compact('mdataget','day'));
     }
 }
