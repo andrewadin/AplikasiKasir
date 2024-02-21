@@ -28,8 +28,6 @@
                             <h2>Tabel Barang</h2>
                             <a href="{{ route('barang-add') }}"><button class="btn btn-primary pull-right"><i
                                         class="fa fa-plus" aria-hidden="true"></i> Tambah Barang</button></a>
-                            <a href="{{route('barang-restock')}}"><button class="btn btn-primary pull-right" style="margin-right: 1%;"><i
-                                        class="fa fa-plus" aria-hidden="true"></i> Re - Stock</button></a>
                         </div>
                         <div class="body">
                             <div class="table-responsive">

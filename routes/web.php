@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\KasirController;
@@ -49,8 +50,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/tabel/barang/edit/{id}',[ItemController::class,'edit'])->name('barang-edit');
     Route::put('/tabel/barang/update/{id}',[ItemController::class,'update'])->name('barang-update');
     Route::delete('/tabel/barang/delete/',[ItemController::class,'delete'])->name('barang-delete');
-    Route::get('/table/barang/restock', [ItemController::class,'restock'])->name('barang-restock');
-    Route::get('/table/barang/restock/{id}', [ItemController::class,'restockid'])->name('barang-restockid');
+    Route::get('/tabel/barang/restock', [ItemController::class,'restock'])->name('barang-restock');
+    Route::get('/tabel/barang/restock/{id}', [ItemController::class,'restockid'])->name('barang-restockid');
 
     Route::post('/kasir/store',[KasirController::class,'store'])->name('kasir-store');
     Route::put('/restock', [ExpensesController::class,'store'])->name('restock');
@@ -72,3 +73,4 @@ Route::middleware(['auth', 'user-access:kasir'])->group(function () {
     Route::get('/khome', [HomeController::class, 'kasirindex'])->name('khome');
     Route::post('/kasir/kstore',[KasirController::class,'store'])->name('kasir-kstore');
 });
+Route::get('/testchart123', [ChartController::class, 'index'])->name('testchart');

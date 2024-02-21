@@ -35,34 +35,59 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Kategori</label>
-                                    <select name="category" id="" class="form-control" required>
+                                    <select name="category" id="" class="form-control @error('category') is-invalid @enderror" required>
                                         <option value="" selected>---- Pilih Kategori ---- </option>
                                         @foreach ($category as $c)
                                         <option value="{{ $c->id }}">{{ $c->category }}</option>
                                         @endforeach
                                     </select>
+                                    @error('category')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nama Barang</label>
-                                    <input type="text" name="item_name" class="form-control">
+                                    <input type="text" name="item_name" class="form-control @error('item_name') is-invalid @enderror">
+                                    @error('item_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="">Stok</label>
-                                    <input type="number" name="stok" class="form-control">
+                                    <input type="number" name="stok" class="form-control @error('stok') is-invalid @enderror">
+                                    @error('stok')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <label for="">Harga Beli</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input type="text" class="form-control" name="buy_price" placeholder="Ex: 1.000,00 Rp" id="buy_price">
+                                    <input type="text" class="form-control @error('buy_price') is-invalid @enderror" name="buy_price" placeholder="Ex: 1.000,00 Rp" id="buy_price">
+                                    @error('buy_price')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <label for="">Harga Jual</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input type="text" class="form-control" name="sell_price" placeholder="Ex: 1000,00 Rp" id="sell_price">
+                                    <input type="text" class="form-control @error('sell_price') is-invalid @enderror" name="sell_price" placeholder="Ex: 1000,00 Rp" id="sell_price">
+                                    @error('sell_price')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</button>

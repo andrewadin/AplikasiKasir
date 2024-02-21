@@ -41,7 +41,7 @@
                                     </thead>
                                     <tbody class="addMoreProduct">
                                         <tr>
-                                            <td><select class="form-control barang" name="barang[]" id="barang">
+                                            <td><select class="form-control barang" name="barang[]" id="barang" required>
                                                     <option value="">---- Pilih Barang ----</option>
                                                     @foreach ($barang as $b)
                                                         <option sell-price="{{ $b->sell_price }}"
@@ -49,13 +49,13 @@
                                                     @endforeach
                                                 </select></td>
                                             <td><input class="form-control stk" type="number" name="stk[]"
-                                                    id="stk"></td>
+                                                    id="stk" required></td>
                                             <td><input class="form-control harga" type="text" name="harga[]"
-                                                    id="harga"></td>
+                                                    id="harga" required></td>
                                             <td><input class="form-control diskon" type="number" name="diskon[]"
-                                                    id="diskon" min="0" max="100" onKeyPress="if(this.value.length==3) return false;" value="0"></td>
+                                                    id="diskon" required min="0" max="100" onKeyPress="if(this.value.length==3) return false;" value="0"></td>
                                             <td><input class="form-control total_item" type="text" name="total[]"
-                                                    id="total_item"></td>
+                                                    id="total_item" required></td>
                                             <td><a href="#" class="btn btn-danger delete"><i
                                                         class="fa fa-minus-square"></i></a></td>
                                         </tr>

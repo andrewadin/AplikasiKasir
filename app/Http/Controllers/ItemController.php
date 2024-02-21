@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Items;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ItemController extends Controller
 {
@@ -24,6 +25,30 @@ class ItemController extends Controller
     }
 
     public function store(Request $request){
+        $rules = array(
+            'category' => 'required',
+            'item_name' => 'required|unique:items',
+            'stok' => 'required',
+            'buy_price' => 'required',
+            'sell_price' => 'required'
+        );
+
+        $messages = array(
+            'category.required' => 'Kategori kosong',
+            'item_name.required' => 'Barang kosong',
+            'item_name.unique' => 'Barang sudah ada',
+            'stok.required' => 'Stok kosong',
+            'buy_price.required' => 'Harga beli kosong',
+            'sell_price.required' => 'Harga jual kosong'
+        );
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if($validator->fails())
+        {
+            return redirect('/tabel/barang/add')
+            ->withErrors($validator);
+        }
+
         $buy_price = str_replace(",","",$request->buy_price);
         $sell_price = str_replace(",","",$request->sell_price);
         Items::updateOrCreate([
@@ -44,6 +69,30 @@ class ItemController extends Controller
     }
 
     public function update(Request $request, $id){
+        $rules = array(
+            'category' => 'required',
+            'item_name' => 'required|unique:items',
+            'stok' => 'required',
+            'buy_price' => 'required',
+            'sell_price' => 'required'
+        );
+
+        $messages = array(
+            'required' => ':attribute kosong',
+            'item_name.required' => 'Barang kosong',
+            'item_name.unique' => 'Barang sudah ada',
+            'stok.required' => 'Stok kosong',
+            'buy_price.required' => 'Harga beli kosong',
+            'sell_price.required' => 'Harga jual kosong'
+        );
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if($validator->fails())
+        {
+            return redirect('/tabel/barang/edit'.$id)
+            ->withErrors($validator);
+        }
+
         $buy_price = str_replace(",","",$request->buy_price);
         $sell_price = str_replace(",","",$request->sell_price);
         Items::updateOrCreate(
@@ -72,6 +121,7 @@ class ItemController extends Controller
     public function restockid($id){
         $barang = Items::all();
         $sbarang = Items::find($id);
-        return view('layouts/restockid',['barang' => $barang, 'sbarang' => $sbarang]);
+        $kategori = Category::all();
+        return view('layouts/restockid',['barang' => $barang, 'sbarang' => $sbarang, 'kategori' => $kategori]);
     }
 }

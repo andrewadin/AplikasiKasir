@@ -66,7 +66,9 @@
                             <h2>Laporan Statistik</h2>
                         </div>
                         <div class="body">
-                            <div id="m_area_chart" class="m-b-20" style="height: 250px;"></div>
+                            <div id="newchart">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,10 +110,61 @@
         </div>
     </div>
 @endsection
+@section('script')
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
 <script>
+var mdata =  <?php echo json_encode($mdataget) ?>;
+Highcharts.chart('newchart',{
+        title : {
+            text : 'Penjualan di tahun 2023'
+        },
+        subtitle : {
+            text : 'Hasil Penjualan di tahun 2023'
+        },
+        xAxis : {
+            categories : ['Minggu 1','Minggu 2','Minggu 3','Minggu 4']
+        },
+        yAxis : {
+            title : {
+                text: 'Banyaknya terjadi transaksi'
+            }
+        },
+        legend : {
+            layout : 'vertical',
+            align : 'right',
+            verticalAlign : 'middle'
+        },
+        plotOption : {
+            series : {
+                allowPointSelect : true
+            }
+        },
+        series : [{
+            name : 'Jumlah transaksi',
+            data : mdata
+        }],
+        responsive : {
+            rules : [{
+                condition : {
+                    maxWidth : 500
+                },
+                chartOption : {
+                    legend : {
+                        layout : 'horizontal',
+                        align : 'center',
+                        verticalAlign : 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+
+
     var msg = '{{Session::get('alert')}}';
         var exist = '{{Session::has('alert')}}';
         if(exist){
             alert(msg);
         }
 </script>
+@endsection
