@@ -30,7 +30,6 @@ class KasirController extends Controller
             // $tax_percentage = 0;
             // $transaction_id = 'TX';
             // $currency = 'Rp';
-            // $image_path = 'logo.png';
 
 
             // $printer = new ReceiptPrinter;
