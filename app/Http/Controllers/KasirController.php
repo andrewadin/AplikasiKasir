@@ -84,9 +84,6 @@ class KasirController extends Controller
                 // );
             }
 
-            // dump($items);
-            // dump($hargas);
-
             // $printer->setStore($mid, $store_name, $store_address, $store_phone, $store_email, $store_website);
             // $printer->setLogo($image_path);
             // $printer->calculateSubTotal();
