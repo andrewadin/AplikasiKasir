@@ -30,11 +30,11 @@
 			<div class="vertical-align-middle auth-main">
 				<div class="auth-box">
                     <div class="top">
-                        <img src="../assets/images/logo-white.svg" alt="Lucid">
+                        <img src="{{asset('assets/images/logo.png')}}" style="width: 75%">
                     </div>
 					<div class="card">
                         <div class="header">
-                            <p class="lead">Login to your account</p>
+                            <p class="lead">Login ke akun anda</p>
                         </div>
                         <div class="body">
                             <form class="form-auth-small" method="post" action="{{ route('login') }}">
