@@ -7,6 +7,9 @@
   <title>Template Faktur Untuk Kasir HTML</title>
 
   <style>
+    @page {
+    margin: 0;
+}
     #invoice-POS{
   box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
   padding:2mm;
@@ -168,7 +171,7 @@ td{
   </div><!--End Invoice-->
 
   <script>
-    window.print()
+    window.print();
     var url = '{{ route("khome") }}';
     window.location.href=url;
   </script>

@@ -33,7 +33,7 @@
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
-        <div class="m-t-30"><img src="{{asset('assets/images/logo-icon.svg')}}" width="48" height="48" alt="Lucid"></div>
+        <div class="m-t-30"><img src="{{asset('assets/images/logo.jpg')}}" width="48" height="48" alt="Lucid"></div>
         <p>Please wait...</p>
     </div>
 </div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="navbar-brand">
-                <a href="index.html"><img src="{{asset('assets/images/logo.svg')}}" alt="Lucid Logo" class="img-responsive logo"></a>
+                <a href="{{route('khome')}}"><img src="{{asset('assets/images/small_cion.png')}}" alt="Lucid Logo" class="img-responsive logo"></a>
             </div>
 
             <div class="navbar-right">

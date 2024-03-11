@@ -95,7 +95,7 @@ class KasirController extends Controller
                 return view('layouts/receipt',['items' => $items, 'harga' => $hargas, 'stk' => $stks, 'total' => $totals, 'receipt' => $request->all()]);
             }else{
                 // return redirect('/khome')->with('alert','Pembayaran berhasil');
-                return view('layouts/receipt',['items' => $items, 'harga' => $hargas, 'stk' => $stks, 'total' => $totals, 'receipt' => $request->all()]);
+                return view('layouts/k-receipt',['items' => $items, 'harga' => $hargas, 'stk' => $stks, 'total' => $totals, 'receipt' => $request->all()]);
             }
         } else {
             if (auth()->user()->type == 'admin') {
