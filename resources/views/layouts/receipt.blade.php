@@ -6,12 +6,14 @@
   <meta charset="UTF-8">
   <title>Template Faktur Untuk Kasir HTML</title>
 
+
   <style>
+
 @page {
     margin: 0;
 }
 
-    #invoice-POS{
+#invoice-POS{
   box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
   padding:2mm;
   margin: 0 auto;
@@ -114,19 +116,17 @@ td{
         </div><!--End Info-->
       </center><!--End InvoiceTop-->
 
-    <div id="mid">
-      <div class="info">
-        <h2>Info Kontak</h2>
-        <p>
-           Alamat : Jakarta</br>
-            Email  : lugusranu@gmail.com</br>
-            Telephone   : 083112065442</br>
-        </p>
-      </div>
-    </div><!--End Invoice Mid-->
+      <div id="mid">
+        <div class="info">
+          <p>
+             Alamat : Di bawah jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur </br>
+             Pusat oleh-oleh dan klinik UMKM Khas Pasuruan </br>
+             "Jagonya Selera Pasuruan" </br>
+          </p>
+        </div>
+      </div><!--End Invoice Mid-->
 
     <div id="bot">
-
                     <div id="table">
                         <table>
                             <tr class="tabletitle">
@@ -164,7 +164,10 @@ td{
                     </div><!--End Table-->
 
                     <div id="legalcopy">
-                        <p class="legal"><strong>Terimakasih Telah Berbelanja!</strong>  Barang yang sudah dibeli tidak dapat dikembalikan. Jangan lupa berkunjung kembali
+                        <p class="legal"><strong>Terimakasih Telah Berbelanja!</strong>  Barang yang sudah dibeli tidak dapat dikembalikan. Jangan lupa berkunjung kembali </br>
+                          Beli online </br>
+                          Shopee    : shopee.com/lugusranu </br>
+                          Tokopedia : tokopedia.com/lugusranu </br>
                         </p>
                     </div>
 
