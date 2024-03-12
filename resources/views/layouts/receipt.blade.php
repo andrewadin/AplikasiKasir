@@ -119,9 +119,9 @@ td{
       <div id="mid">
         <div class="info">
           <p>
-             Alamat : Di bawah jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur </br>
-             Pusat oleh-oleh dan klinik UMKM Khas Pasuruan </br>
-             "Jagonya Selera Pasuruan" </br>
+            Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur </br>
+            Pusat oleh-oleh dan klinik UMKM Khas Pasuruan </br>
+            "Jagonya Selera Pasuruan" </br>
           </p>
         </div>
       </div><!--End Invoice Mid-->

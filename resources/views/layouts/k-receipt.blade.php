@@ -117,7 +117,7 @@ td{
       <div class="info">
         <h2>Info Kontak</h2>
         <p>
-           Alamat : Di bawah jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur </br>
+           Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur </br>
            Pusat oleh-oleh dan klinik UMKM Khas Pasuruan </br>
            "Jagonya Selera Pasuruan" </br>
         </p>
