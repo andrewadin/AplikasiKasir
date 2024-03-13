@@ -15,7 +15,7 @@ class ExpensesController extends Controller
     }
 
     public function index(){
-        $laporan = Outcome::with('items')->get();
+        $laporan = Outcome::with('items')->orderBy('created_at', 'desc')->get();
         return view('layouts/rep-expense',['laporan' => $laporan]);
     }
 
@@ -74,7 +74,7 @@ class ExpensesController extends Controller
                 'sell_price' => $newjual,
             ]);
 
-            Outcome::updateOrCreate([
+            Outcome::Create([
                 'id_item' => $request->id,
                 'price' => $newharga,
                 'qty' => $request->stk,

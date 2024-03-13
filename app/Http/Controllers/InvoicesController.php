@@ -13,7 +13,7 @@ class InvoicesController extends Controller
     }
 
     public function index(){
-        $invoice = Transaction::with('items')->get();
+        $invoice = Transaction::with('items')->orderBy('created_at', 'desc')->get();
         return view('layouts/rep-invoices',['invoice' => $invoice]);
     }
 }

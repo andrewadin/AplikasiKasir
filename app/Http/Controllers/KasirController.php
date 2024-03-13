@@ -60,7 +60,7 @@ class KasirController extends Controller
                         'stok' => $newstk,
                     ]);
 
-                    Transaction::updateOrCreate([
+                    Transaction::Create([
                         'id_item' => $request->barang[$barang],
                         'price' => $newharga,
                         'qty' => $request->stk[$barang],
