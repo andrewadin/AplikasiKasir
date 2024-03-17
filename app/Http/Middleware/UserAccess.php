@@ -22,7 +22,13 @@ class UserAccess
             return $next($request);
 
         }
-        return response()->json(['You do not have permission to access for this page.']);
+        return redirect()->route('login')
+                ->withErrors(
+                    [
+                        'username' => 'Harus login terlebih dahulu',
+                        'password' => 'Harus login terlebih dahulu'
+                    ]
+                );
 
         /* return response()->view('errors.check-permission'); */
 

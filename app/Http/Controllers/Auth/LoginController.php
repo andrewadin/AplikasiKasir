@@ -64,8 +64,8 @@ class LoginController extends Controller
             return redirect()->route('login')
                 ->withErrors(
                     [
-                        'username' => 'Username or password is incorrect',
-                        'password' => 'Username or password is incorrect'
+                        'username' => 'Username atau password salah',
+                        'password' => 'Username atau password salah'
                     ]
                 );
         }
