@@ -43,7 +43,7 @@ p{
   border-bottom: 1px solid #EEE;
 }
 
-#top{min-height: 100px;}
+#top{min-height: 80px;}
 #mid{min-height: 80px;}
 #bot{ min-height: 50px;}
 
@@ -71,12 +71,12 @@ td{
 }
 .tabletitle{
   //padding: 5px;
-  font-size: .5em;
+  font-size: .6em;
   background: #EEE;
 }
 .service{border-bottom: 1px solid #EEE;}
-.item{width: 24mm;}
-.itemtext{font-size: .5em;}
+.item{width: 20mm;}
+.itemtext{font-size: .6em;}
 
 #legalcopy{
   margin-top: 5mm;
@@ -111,13 +111,11 @@ td{
         <div class="logo">
             <img src="{{ asset('assets/images/logo.png')}}" alt="" class="imglogo" style="width: 200%; margin-top:-50%; margin-left:-50%;">
         </div>
-        <div class="info">
-          <h2>Lugusranu</h2>
-        </div><!--End Info-->
       </center><!--End InvoiceTop-->
 
       <div id="mid">
         <div class="info">
+            <h2>Lugusranu</h2>
           <p>
             Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur </br>
             Pusat oleh-oleh dan klinik UMKM Khas Pasuruan </br>
@@ -164,7 +162,7 @@ td{
                     </div><!--End Table-->
 
                     <div id="legalcopy">
-                        <p class="legal"><strong>Terimakasih Telah Berbelanja!</strong>  Barang yang sudah dibeli tidak dapat dikembalikan. Jangan lupa berkunjung kembali </br>
+                        <p class="legal"><strong>Terimakasih Telah Berbelanja!</strong></br>
                           Beli online </br>
                           Shopee    : shopee.com/lugusranu </br>
                           Tokopedia : tokopedia.com/lugusranu </br>
