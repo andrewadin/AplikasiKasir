@@ -22,10 +22,11 @@
 <link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css')}}">
-
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
+
 @yield('css')
 </head>
 
@@ -147,7 +148,9 @@
 </div>
 
 <!-- Javascript -->
-<script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{{-- <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script> --}}
 <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
 
 <script src="{{asset('assets/vendor/toastr/toastr.js')}}"></script>
