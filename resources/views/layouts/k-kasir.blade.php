@@ -90,10 +90,14 @@
 
 @section('script')
     <script>
+        $(function(){
+            $('.barang').select2();
+        });
+
         $('.add_more').on('click', function() {
             var barang = $('.barang').html();
             var numberofrow = ($('.addMoreProduct tr').length - 0) + 1;
-            var tr = '<tr><td><select class="form-control barang" name="barang[]" id="barang" >' + barang +
+            var tr = '<tr><td><select class="form-control barang" name="barang[]" id="barang'+numberofrow+'" >' + barang +
                 ' </select></td>' +
                 '<td><input type="number" name="stk[]" class="form-control stk" id="stk" ></td>' +
                 '<td><input type="text" name="harga[]" class="form-control harga" id="harga"></td>' +
@@ -101,25 +105,27 @@
                 '<td><input type="text" name="total[]" class="form-control total_item" id="total_item"></td>' +
                 '<td><a class="btn btn-danger delete"><i class="fa fa-minus-square"></i></a></td>'
             $('.addMoreProduct').append(tr);
+            $('.barang').select2();
         });
 
         $('.addMoreProduct').delegate('.delete', 'click', function() {
             $(this).parent().parent().remove();
             Total();
             Kembalian();
+            $('.barang').select2();
         });
 
         function Total() {
 
             var total = 0;
             $('.total_item').each(function(i, e) {
-                var amount = $(this).val().replaceAll('.','') - 0;
+                var amount = $(this).val().replaceAll('.', '') - 0;
                 total += amount;
             });
-            var fixtotal = new Intl.NumberFormat("id-ID",{
-                    style : "currency",
-                    currency : "IDR"
-                }).format(total).replace(',00','').replace('Rp','');
+            var fixtotal = new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(total).replace(',00', '').replace('Rp', '');
             $('.total').html(fixtotal);
             $('.vtotal').val(total);
         }
@@ -127,19 +133,19 @@
         $('.addMoreProduct').delegate('.barang', 'change', function() {
             var tr = $(this).parent().parent();
             var harga = tr.find('.barang option:selected').attr('sell-price');
-            var hargafix = new Intl.NumberFormat("id-ID",{
-                                style : "currency",
-                                currency : "IDR"
-                            }).format(harga).replace(',00','').replace('Rp','');
+            // var harga = $('.barang').siblings('.es-list').find('li.selected').attr('sell-price');
+            var hargafix = new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(harga).replace(',00', '').replace('Rp', '');
             tr.find('.harga').val(hargafix);
             var stk = tr.find('.stk').val() - 0;
             var diskon = tr.find('.diskon').val() - 0;
-            var harga = tr.find('.harga').val() - 0;
             var total_item = (stk * harga) - ((stk * harga * diskon) / 100);
-            var totalfix = new Intl.NumberFormat("id-ID",{
-                                style : "currency",
-                                currency : "IDR"
-                            }).format(total_item).replace(',00','').replace('Rp','');
+            var totalfix = new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(total_item).replace(',00', '').replace('Rp', '');
             tr.find('.total_item').val(totalfix);
             Total();
             Kembalian();
@@ -148,65 +154,70 @@
         $('.addMoreProduct').delegate('.stk , .diskon , .uang_bayar', 'keyup', function() {
             var tr = $(this).parent().parent();
             var harga = tr.find('.barang option:selected').attr('sell-price');
-            var hargafix = new Intl.NumberFormat("id-ID",{
-                                style : "currency",
-                                currency : "IDR"
-                            }).format(harga).replace(',00','').replace('Rp','');
-            tr.find('.harga').val(hargafix);
+            // var harga = $('.barang').siblings('.es-list').find('li.selected').attr('sell-price');
+            // var hargafix = new Intl.NumberFormat("id-ID", {
+            //     style: "currency",
+            //     currency: "IDR"
+            // }).format(harga).replace(',00', '').replace('Rp', '');
             var stk = tr.find('.stk').val() - 0;
             var diskon = tr.find('.diskon').val() - 0;
-            var harga = tr.find('.harga').val().replaceAll('.','') - 0;
             var total_item = (stk * harga) - ((stk * harga * diskon) / 100);
-            var totalfix = new Intl.NumberFormat("id-ID",{
-                                style : "currency",
-                                currency : "IDR"
-                            }).format(total_item).replace(',00','').replace('Rp','');
+            var totalfix = new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(total_item).replace(',00', '').replace('Rp', '');
             tr.find('.total_item').val(totalfix);
             Total();
             Kembalian();
         })
 
         function Kembalian() {
-                var total = 0;
-                $('.total_item').each(function(i, e) {
-                    var amount = $(this).val().replaceAll('.','') - 0;
-                    total += amount;
-                });
-                var paid = $('.uang_bayar').val().replaceAll(',','') - 0;
-                var tot = paid - total;
-                var fix = new Intl.NumberFormat("id-ID",{
-                    style : "currency",
-                    currency : "IDR"
-                }).format(tot).replace(',00','').replace('Rp','');
-                $('.kembalian').html(fix);
-                $('.vkembalian').val(tot);
+            var total = 0;
+            $('.total_item').each(function(i, e) {
+                var amount = $(this).val().replaceAll('.', '') - 0;
+                total += amount;
+            });
+            var paid = $('.uang_bayar').val().replaceAll(',', '') - 0;
+            var tot = paid - total;
+            var fix = new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(tot).replace(',00', '').replace('Rp', '');
+            $('.kembalian').html(fix);
+            $('.vkembalian').val(tot);
 
             $('.uang_bayar').keyup(function() {
-                var paid = $('.uang_bayar').val().replaceAll(',','') - 0;
+                var paid = $('.uang_bayar').val().replaceAll(',', '') - 0;
                 var tot = paid - total;
-                var fix = new Intl.NumberFormat("id-ID",{
-                    style : "currency",
-                    currency : "IDR"
-                }).format(tot).replace(',00','').replace('Rp','');
+                var fix = new Intl.NumberFormat("id-ID", {
+                    style: "currency",
+                    currency: "IDR"
+                }).format(tot).replace(',00', '').replace('Rp', '');
                 $('.kembalian').html(fix);
                 $('.vkembalian').val(tot);
             })
 
             $('.addMoreProduct').delegate('.barang', 'change', function() {
-                var paid = $('.uang_bayar').val().replaceAll(',','') - 0;
+                var paid = $('.uang_bayar').val().replaceAll(',', '') - 0;
                 var tot = paid - total;
-                var fix = new Intl.NumberFormat("id-ID",{
-                    style : "currency",
-                    currency : "IDR"
-                }).format(tot).replace(',00','').replace('Rp','');
+                var fix = new Intl.NumberFormat("id-ID", {
+                    style: "currency",
+                    currency: "IDR"
+                }).format(tot).replace(',00', '').replace('Rp', '');
                 $('.kembalian').html(fix);
                 $('.vkembalian').val(tot);
-        })
+            })
         }
 
         new AutoNumeric('#uang_bayar', {
             digitGroupSeparator: ',',
             decimalPlaces: 0,
         });
+
+        var msg = '{{ Session::get('alert') }}';
+        var exist = '{{ Session::has('alert') }}';
+        if (exist) {
+            alert(msg);
+        }
     </script>
 @endsection

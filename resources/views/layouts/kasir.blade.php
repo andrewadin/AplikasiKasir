@@ -152,7 +152,6 @@
             tr.find('.total_item').val(totalfix);
             Total();
             Kembalian();
-            $('.barang').select2();
         })
 
         $('.addMoreProduct').delegate('.stk , .diskon , .uang_bayar', 'keyup', function() {
@@ -173,7 +172,6 @@
             tr.find('.total_item').val(totalfix);
             Total();
             Kembalian();
-            $('.barang').select2();
         })
 
         function Kembalian() {
@@ -211,7 +209,6 @@
                 }).format(tot).replace(',00', '').replace('Rp', '');
                 $('.kembalian').html(fix);
                 $('.vkembalian').val(tot);
-                $('.barang').select2();
             })
         }
 
