@@ -30,7 +30,10 @@
                                         <th>Harga</th>
                                         <th>Kuantitas</th>
                                         <th>Total</th>
+                                        <th>Uang Bayar</th>
+                                        <th>Kembalian</th>
                                         <th>Tanggal Pembelian</th>
+                                        <th>Nota Pembelian</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,7 +44,10 @@
                                         <td>Rp. {{ number_format($i->price,0,',','.') }} </td>
                                         <td>{{ $i->qty }} </td>
                                         <td>Rp. {{ number_format($i->total,0,',','.') }}</td>
+                                        <td>Rp. {{ number_format($i->payment,0,',','.') }}</td>
+                                        <td>Rp. {{ number_format($i->change_money,0,',','.') }}</td>
                                         <td>{{ $i->created_at}}</td>
+                                        <td><a href="{{route('printNota',$i->id)}}" class="btn btn-success"><i class="fa fa-address-book" aria-hidden="true"></i> Print Nota</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

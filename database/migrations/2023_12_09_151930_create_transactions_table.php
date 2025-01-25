@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer('qty');
             $table->double('discount');
             $table->double('total');
+            $table->double('payment');
+            $table->double('change_money');
             $table->timestamps();
 
             $table->foreign('id_item')

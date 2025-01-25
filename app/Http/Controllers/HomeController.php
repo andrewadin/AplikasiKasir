@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -43,15 +44,21 @@ class HomeController extends Controller
 
         $mdataget = Transaction::select(DB::raw("SUM(total) as sum"))
                 -> whereMonth('created_at',(date('m')))
+                -> whereYear('created_at',(date(Carbon::now()->year)))
                 -> groupBy(DB::raw("Day(created_at)"))
                 -> pluck('sum');
 
         $day = Transaction::select(DB::raw("DAY(created_at) as day"))
                 -> whereMonth('created_at',(date('m')))
+                -> whereYear('created_at',(date(Carbon::now()->year)))
                 -> groupBy(DB::raw("Day(created_at)"))
                 -> pluck('day');
         // dump($mdataget);
         // dump($day);
         return view('layouts/dashboard',['items' => $items, 'income' => $income, 'expenses' => $expenses, 'stock' => $stock, 'nstock' => $nstock], compact('mdataget','day'));
+    }
+
+    public function testnota(){
+        return view('layouts/receipttest');
     }
 }

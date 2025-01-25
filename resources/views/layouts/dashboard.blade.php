@@ -118,7 +118,7 @@ var mdata =  <?php echo json_encode($mdataget) ?>;
 var day =  <?php echo json_encode($day) ?>;
 Highcharts.chart('newchart',{
         title : {
-            text : 'Penjualan di tahun 2024'
+            text : 'Penjualan di tahun <?php echo date("Y") ?>'
         },
         subtitle : {
             text : 'Hasil Penjualan di bulan <?php echo date("M") ?>'

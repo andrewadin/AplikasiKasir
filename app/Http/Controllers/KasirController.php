@@ -47,6 +47,8 @@ class KasirController extends Controller
                 $total = $request->total[$barang];
                 $newharga = str_replace(".","",$harga);
                 $newtotal = str_replace(".","",$total);
+                $kembalian = str_replace(".","",$request->kembalian);
+                $uang_bayar = str_replace(",","",$request->uang_bayar);
 
                 $items[] = $item->item_name;
                 $hargas[] = $harga;
@@ -66,6 +68,8 @@ class KasirController extends Controller
                         'qty' => $request->stk[$barang],
                         'discount' => $request->diskon[$barang],
                         'total' => $newtotal,
+                        'change_money'=> $kembalian,
+                        'payment' => $uang_bayar,
                     ]);
                 } else {
                     if (auth()->user()->type == 'admin') {
@@ -92,10 +96,10 @@ class KasirController extends Controller
 
             if (auth()->user()->type == 'admin') {
                 // return redirect('/kasir')->with('alert','Pembayaran berhasil');
-                return view('layouts/receipt',['items' => $items, 'harga' => $hargas, 'stk' => $stks, 'total' => $totals, 'receipt' => $request->all()]);
+                return view('layouts/print-receipt',['items' => $items, 'harga' => $hargas, 'stk' => $stks, 'total' => $totals, 'receipt' => $request->all()]);
             }else{
                 // return redirect('/khome')->with('alert','Pembayaran berhasil');
-                return view('layouts/k-receipt',['items' => $items, 'harga' => $hargas, 'stk' => $stks, 'total' => $totals, 'receipt' => $request->all()]);
+                return view('layouts/print-receipt',['items' => $items, 'harga' => $hargas, 'stk' => $stks, 'total' => $totals, 'receipt' => $request->all()]);
             }
         } else {
             if (auth()->user()->type == 'admin') {

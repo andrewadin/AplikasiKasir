@@ -26,11 +26,68 @@
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
+<style>
+    @media print {
+    @page{
+        size: A4;
+        margin: 0;
+    }
+    .page-screen {
+        display: none;
+     }
+    .page-print {
+        display: block;
+     }
+    .ftsz {
+        font-size: 1.5em;
+    }
+    .img-sz{
+        width: 25%;
+        height: 25%;
+    }
+    .bold-brd{
+        border: 3px solid black;
+    }
+ }
+ .ctnr{
+    height: 70px;
+ }
 
+ .ctnr img{
+    max-height: 100%;
+    max-width: 100%;
+ }
+
+ .cntr{
+    text-align: center;
+ }
+ .inln{
+    display: inline-block;
+    margin-right: 25%;
+ }
+
+ .font-lg{
+    font-size: large;
+ }
+ .crd{
+    justify-content: center;
+    border: 2px solid black;
+    background-color: white;
+    .body{
+        color: black;
+    }
+ }
+ .parent{
+    display: flex;
+ }
+ .left, .right {
+    flex: 1;
+  }
+</style>
 @yield('css')
 </head>
 
-<body class="theme-cyan">
+<body class="theme-cyan" id="bd">
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">

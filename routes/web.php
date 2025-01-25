@@ -31,8 +31,6 @@ Route::get('/blank',function(){
     return view('layouts/blank');
 });
 
-
-
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/kasir', [KasirController::class,'index'])->name('kasir');
@@ -67,6 +65,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::delete('/users/delete/{id}',[UsersController::class,'delete'])->name('users-delete');
     Route::get('/users/forgot/{id}',[UsersController::class,'forgotpsw'])->name('users-fpsw');
     Route::put('/users/change/{id}',[UsersController::class,'changepsw'])->name('users-cpsw');
+    
+    Route::get('/printNota/{id}',[InvoicesController::class,'printNota'])->name('printNota');
 });
 
 Route::middleware(['auth', 'user-access:kasir'])->group(function () {

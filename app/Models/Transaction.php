@@ -15,6 +15,8 @@ class Transaction extends Model
         'qty',
         'discount',
         'total',
+        'payment',
+        'change_money',
     ];
 
     public function items(){
