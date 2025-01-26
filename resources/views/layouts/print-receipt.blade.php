@@ -5,17 +5,14 @@
 @section('css')
 <style>
     table{
-        width: 75%;
+        width: 100%;
         border-collapse: collapse;
-        margin-left: 20%;
+        margin-left: 2%;
     }
-    td{
-        //padding: 5px 0 5px 15px;
+    thead {
+        display: table-row-group;
     }
-    thead{
-        //padding: 5px;
-        font-size: 1.5em;
-    }
+    
 </style>
 @endsection
 @section('content')
@@ -37,16 +34,16 @@
 
             <div class="row clearfix">
                 <div class="col-lg-12">
-                    <div class="card page-print ftsz">
+                    <div class="card page-print">
                         <div class="header">
-                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:50%;height:50%;"></span></center>
-                            <h3 style="text-align:center;" class="ftsz">Nota Pemesanan</h3>
-                            <p style="text-align:center;">Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur </br>
-                            Pusat oleh-oleh dan klinik UMKM Khas Pasuruan </br>
-                            "Jagonya Selera Pasuruan" </br> </p>
+                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:100%;height:100%"></span></center>
+                            <p class="ftsz-sm" style="text-align: center;">
+                            Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
+                            Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>
+                            <p class="ftsz-sm" style="text-align: center;">"Jagonya Selera Pasuruan"</p>
                         </div>
-                        <div class="body">
-                            <table class="tbl">
+                        <div class="body cntr">
+                            <table class="tbl ftsz">
                                 <thead style="font-weight:bold;">
                                     <tr>
                                         <td>Item</td>
@@ -81,10 +78,10 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div class="footer">
+                            <div class="footer ftsz-sm">
                                 <center>
                                     <br>
-                                <h3><strong>Terimakasih Telah Berbelanja!</strong></h3>
+                                <p><strong>Terimakasih Telah Berbelanja!</strong></p>
                                    <p>Beli online </br>
                                     Shopee    : shopee.com/lugusranu </br>
                                     Tokopedia : tokopedia.com/lugusranu </br>

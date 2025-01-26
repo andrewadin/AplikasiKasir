@@ -5,17 +5,14 @@
 @section('css')
 <style>
     table{
-        width: 75%;
+        width: 100%;
         border-collapse: collapse;
-        margin-left: 20%;
+        margin-left: 2%;
     }
-    td{
-        //padding: 5px 0 5px 15px;
+    thead {
+        display: table-row-group;
     }
-    thead{
-        //padding: 5px;
-        font-size: 1.5em;
-    }
+    
 </style>
 @endsection
 @section('content')
@@ -37,16 +34,16 @@
 
             <div class="row clearfix">
                 <div class="col-lg-12">
-                    <div class="card page-print ftsz">
+                    <div class="card page-screen">
                         <div class="header">
-                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:50%;height:50%;"></span></center>
-                            <h3 style="text-align:center;" class="ftsz">Nota Pemesanan</h3>
-                            <p style="text-align:center;">Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur </br>
-                            Pusat oleh-oleh dan klinik UMKM Khas Pasuruan </br>
-                            "Jagonya Selera Pasuruan" </br> </p>
+                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:100%;height:100%"></span></center>
+                            <p class="ftsz-sm" style="text-align: center;">
+                            Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
+                            Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>
+                            <p class="ftsz-sm" style="text-align: center;">"Jagonya Selera Pasuruan"</p>
                         </div>
-                        <div class="body">
-                            <table class="tbl">
+                        <div class="body cntr">
+                            <table class="tbl ftsz">
                                 <thead style="font-weight:bold;">
                                     <tr>
                                         <td>Item</td>
@@ -57,34 +54,86 @@
                                 <tbody>
                                     @foreach ($histori as $h)
                                     <tr>
-                                        <td>{{ $h->items->item_name }}</p></td>
-                                        <td>{{ $h->qty }}</p></td>
-                                        <td>Rp. {{number_format($h->total),0,',','.'}}</p></td>
+                                        <td>{{ $h->items->item_name }}</td>
+                                        <td>{{ $h->qty }}</td>
+                                        <td>Rp. {{number_format($h->total),0,',','.'}}</td>
                                     </tr>
                                     @endforeach
-                                </tbody>
-                                <tfoot style="font-weight:bold;">
-                                    <tr>
+                                    <tr style="font-weight:bold;">
                                         <td></td>
                                         <td>Total</td>
                                         <td>@foreach ($histori as $h) Rp. {{number_format($h->total += $h->total),0,',','.'}} @endforeach</td>
                                     </tr>
-                                    <tr>
+                                    <tr style="font-weight:bold;">
                                         <td></td>
                                         <td>Tunai</td>
                                         <td>Rp. {{number_format($h->payment),0,',','.'}}</td>
                                     </tr>
-                                    <tr>
+                                    <tr style="font-weight:bold;">
                                         <td></td>
                                         <td>Kembalian</td>
                                         <td>Rp. {{number_format($h->change_money),0,',','.'}}</td>
                                     </tr>
-                                </tfoot>
+                                </tbody>
                             </table>
-                            <div class="footer">
+                            <div class="footer ftsz-sm">
                                 <center>
                                     <br>
-                                <h3><strong>Terimakasih Telah Berbelanja!</strong></h3>
+                                <p><strong>Terimakasih Telah Berbelanja!</strong></p>
+                                   <p>Beli online </br>
+                                    Shopee    : shopee.com/lugusranu </br>
+                                    Tokopedia : tokopedia.com/lugusranu </br>
+                                  </p>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card page-print">
+                        <div class="header">
+                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:100%;height:100%"></span></center>
+                            <p class="ftsz-sm" style="text-align: justify;">
+                            Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
+                            Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>
+                            <p class="ftsz-sm" style="text-align: center;">"Jagonya Selera Pasuruan"</p>
+                        </div>
+                        <div class="body cntr">
+                            <table class="tbl ftsz">
+                                <thead style="font-weight:bold;">
+                                    <tr>
+                                        <td>Item</td>
+                                        <td>Qty</td>
+                                        <td>Sub total</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($histori as $h)
+                                    <tr>
+                                        <td>{{ $h->items->item_name }}</td>
+                                        <td>{{ $h->qty }}</td>
+                                        <td>Rp. {{number_format($h->total),0,',','.'}}</td>
+                                    </tr>
+                                    @endforeach
+                                    <tr style="font-weight:bold;">
+                                        <td></td>
+                                        <td>Total</td>
+                                        <td>@foreach ($histori as $h) Rp. {{number_format($h->total += $h->total),0,',','.'}} @endforeach</td>
+                                    </tr>
+                                    <tr style="font-weight:bold;">
+                                        <td></td>
+                                        <td>Tunai</td>
+                                        <td>Rp. {{number_format($h->payment),0,',','.'}}</td>
+                                    </tr>
+                                    <tr style="font-weight:bold;">
+                                        <td></td>
+                                        <td>Kembalian</td>
+                                        <td>Rp. {{number_format($h->change_money),0,',','.'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="footer ftsz-sm">
+                                <center>
+                                    <br>
+                                <p><strong>Terimakasih Telah Berbelanja!</strong></p>
                                    <p>Beli online </br>
                                     Shopee    : shopee.com/lugusranu </br>
                                     Tokopedia : tokopedia.com/lugusranu </br>

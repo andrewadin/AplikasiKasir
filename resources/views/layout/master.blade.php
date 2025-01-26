@@ -28,27 +28,35 @@
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
 <style>
     @media print {
-    @page{
-        size: A4;
-        margin: 0;
+        @page{
+            margin: 0;
+        }
+        .page-screen {
+            display: none;
+        }
+        .page-print {
+            display: block;
+        }
+        .ftsz {
+            font-size: 5.5em;
+        }
+        .ftsz-sm {
+            font-size: 4em;
+        }
+        .img-sz{
+            width: 25%;
+            height: 25%;
+        }
+        .bold-brd{
+            border: 3px solid black;
+        }
     }
     .page-screen {
-        display: none;
-     }
-    .page-print {
         display: block;
      }
-    .ftsz {
-        font-size: 1.5em;
-    }
-    .img-sz{
-        width: 25%;
-        height: 25%;
-    }
-    .bold-brd{
-        border: 3px solid black;
-    }
- }
+    .page-print {
+        display: none;
+     }
  .ctnr{
     height: 70px;
  }
