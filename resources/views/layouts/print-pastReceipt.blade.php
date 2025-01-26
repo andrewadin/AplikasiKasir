@@ -31,12 +31,11 @@
                     </div>
                 </div>
             </div>
-
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card page-screen">
                         <div class="header">
-                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:100%;height:100%"></span></center>
+                            <center><span><img src="{{asset('assets/images/logo.png')}}"></span></center>
                             <p class="ftsz-sm" style="text-align: center;">
                             Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
                             Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>
@@ -90,7 +89,7 @@
                     </div>
                     <div class="card page-print">
                         <div class="header">
-                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:100%;height:100%"></span></center>
+                            <center><span><img src="{{asset('assets/images/logo.png')}}"></span></center>
                             <p class="ftsz-sm" style="text-align: justify;">
                             Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
                             Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>
@@ -144,7 +143,7 @@
                     </div>
                     <div class="form-group col-lg-12 page-screen">
                         <button type="button" class="btn btn-primary" onclick="printNota()">Cetak Nota</button>
-                        <a href="{{route('transaksi')}}" class="btn btn-secondary ">Kembali</a>
+                        <a href="{{route('pemasukan')}}" class="btn btn-secondary">Kembali</a>
                     </div>
                 </div>
             </div>

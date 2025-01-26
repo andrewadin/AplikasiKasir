@@ -34,10 +34,66 @@
 
             <div class="row clearfix">
                 <div class="col-lg-12">
+                    <div class="card page-screen">
+                        <div class="header">
+                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:25%;height:25%"></span></center>
+                            <p class="ftsz-sm" style="text-align: center;">
+                            Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
+                            Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>
+                            <p class="ftsz-sm" style="text-align: center;">"Jagonya Selera Pasuruan"</p>
+                        </div>
+                        <div class="body cntr">
+                            <table class="tbl ftsz">
+                                <thead style="font-weight:bold;">
+                                    <tr>
+                                        <td>Item</td>
+                                        <td>Qty</td>
+                                        <td>Sub total</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for ($i = 0; $i < count($items); $i++)
+                                    <tr>
+                                        <td>{{ $items[$i] }}</p></td>
+                                        <td>{{ $stk[$i] }}</p></td>
+                                        <td>Rp. {{ $harga[$i] }}</p></td>
+                                    </tr>
+                                    @endfor
+                                </tbody>
+                                <tfoot style="font-weight:bold;">
+                                    <tr>
+                                        <td></td>
+                                        <td>Total</td>
+                                        <td>Rp. {{number_format($receipt['totalall']),0,',','.'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Tunai</td>
+                                        <td>Rp. {{$receipt['uang_bayar']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Kembalian</td>
+                                        <td>Rp. {{number_format($receipt['kembalian']),0,',','.'}}</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="footer ftsz-sm">
+                                <center>
+                                    <br>
+                                <p><strong>Terimakasih Telah Berbelanja!</strong></p>
+                                   <p>Beli online </br>
+                                    Shopee    : shopee.com/lugusranu </br>
+                                    Tokopedia : tokopedia.com/lugusranu </br>
+                                  </p>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card page-print">
                         <div class="header">
                             <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:100%;height:100%"></span></center>
-                            <p class="ftsz-sm" style="text-align: center;">
+                            <p class="ftsz-sm" style="text-align: justify;">
                             Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
                             Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>
                             <p class="ftsz-sm" style="text-align: center;">"Jagonya Selera Pasuruan"</p>

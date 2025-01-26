@@ -37,6 +37,10 @@
         .page-print {
             display: block;
         }
+        img{
+            width: 100%;
+            height: 100%;
+        }
         .ftsz {
             font-size: 5.5em;
         }
@@ -51,12 +55,12 @@
             border: 3px solid black;
         }
     }
-    .page-screen {
-        display: block;
-     }
     .page-print {
-        display: none;
-     }
+            display: none;
+    }
+    .page-screen {
+            display: block;
+    }
  .ctnr{
     height: 70px;
  }
@@ -91,6 +95,14 @@
  .left, .right {
     flex: 1;
   }
+.img-sm{
+    width: 25%;
+    height: 25%;
+}
+.img-lg{
+    width: 100%;
+    heght: 100%;
+}
 </style>
 @yield('css')
 </head>
