@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Items;
 use App\Models\Transaction;
-use Illuminate\Http\Request;
 
 class InvoicesController extends Controller
 {
@@ -18,9 +17,19 @@ class InvoicesController extends Controller
         return view('layouts/rep-invoices',['invoice' => $invoice]);
     }
 
+    public function transaction(){
+        $invoice = Transaction::with('items')->orderBy('created_at', 'desc')->get()->groupBy('created_at');
+        return view('layouts/table-transaction',['invoice' => $invoice]);
+    }
+
     public function printNota ($id){
         $fornow = Transaction::find($id);
         $nota = Transaction::with('items')->where('created_at', $fornow->created_at)->get();
-        return view('layouts/print-pastReceipt',['histori' => $nota]);
+        $totalall = 0;
+        foreach ($nota as $n){
+            $totalall += $n->total;
+        }
+        //dump(count($nota));
+        return view('layouts/print-pastReceipt',['histori' => $nota,'totalall'=> $totalall]);
     }
 }

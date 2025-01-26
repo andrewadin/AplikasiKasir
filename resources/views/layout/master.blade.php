@@ -156,7 +156,8 @@
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
                             <li><a href="{{ route('home') }}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
-                            <li><a href="{{ route('kasir') }}"><i class="fa fa-money" aria-hidden="true"></i>Kasir</a></li>
+                            <li><a href="{{ route('kasir') }}"><i class="fa fa-cart-plus" aria-hidden="true"></i>Kasir</a></li>
+                            <li><a href="{{ route('transaksi')}}"><i class="fa fa-money" aria-hidden="true"></i>Transaksi</a></li>
                             <li>
                                 <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Barang</span></a>
                                 <ul>

@@ -52,6 +52,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/tabel/barang/restock/{id}', [ItemController::class,'restockid'])->name('barang-restockid');
 
     Route::post('/kasir/store',[KasirController::class,'store'])->name('kasir-store');
+    Route::get('/tabel/transaksi', [InvoicesController::class,'transaction'])->name('transaksi');
     Route::put('/restock', [ExpensesController::class,'store'])->name('restock');
     Route::get('/laporan/pengeluaran', [ExpensesController::class,'index'])->name('pengeluaran');
 
