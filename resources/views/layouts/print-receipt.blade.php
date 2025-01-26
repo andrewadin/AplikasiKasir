@@ -34,9 +34,9 @@
 
             <div class="row clearfix">
                 <div class="col-lg-12">
-                <div class="card page-screen">
+                    <div class="card page-screen">
                         <div class="header">
-                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:100%;height:100%"></span></center>
+                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width:25%;height:25%"></span></center>
                             <p class="ftsz-sm" style="text-align: center;">
                             Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
                             Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>
