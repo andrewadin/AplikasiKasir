@@ -61,7 +61,7 @@
                                     <tr style="font-weight:bold;">
                                         <td></td>
                                         <td>Total</td>
-                                        <td>@foreach ($histori as $h) Rp. {{number_format($h->total += $h->total),0,',','.'}} @endforeach</td>
+                                        <td>Rp. {{number_format($totalall),0,',','.'}}</td>
                                     </tr>
                                     <tr style="font-weight:bold;">
                                         <td></td>
@@ -115,7 +115,7 @@
                                     <tr style="font-weight:bold;">
                                         <td></td>
                                         <td>Total</td>
-                                        <td>@foreach ($histori as $h) Rp. {{number_format($h->total += $h->total),0,',','.'}} @endforeach</td>
+                                        <td>@foreach ($histori as $h) Rp. {{number_format($totalall),0,',','.'}} @endforeach</td>
                                     </tr>
                                     <tr style="font-weight:bold;">
                                         <td></td>
@@ -143,7 +143,11 @@
                     </div>
                     <div class="form-group col-lg-12 page-screen">
                         <button type="button" class="btn btn-primary" onclick="printNota()">Cetak Nota</button>
+<<<<<<< HEAD
                         <a href="{{route('pemasukan')}}" class="btn btn-secondary">Kembali</a>
+=======
+                        <a href="{{route('transaksi')}}" class="btn btn-secondary ">Kembali</a>
+>>>>>>> ea4480a69c673f0c1ca188c0e6bf9651dfe82ca5
                     </div>
                 </div>
             </div>
