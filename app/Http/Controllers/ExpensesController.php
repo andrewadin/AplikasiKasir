@@ -22,20 +22,16 @@ class ExpensesController extends Controller
     public function store(Request $request){
 
         $rules = array(
-            'category' => 'required',
             'nama_barang' => 'required',
             'stk' => 'integer',
             'harga_beli' => 'required',
-            'harga_jual' => 'required',
             'total' => 'required'
         );
 
         $messages = array(
-            'category.required' => 'Kategori kosong',
             'nama_barang.required' => 'Barang kosong',
             'nama_barang.unique' => 'Barang sudah ada',
-            'harga_beli.required' => 'Harga beli kosong',
-            'harga_jual.required' => 'Harga jual kosong'
+            'harga_beli.required' => 'Harga beli kosong'
         );
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -46,42 +42,23 @@ class ExpensesController extends Controller
         }
 
         $item = Items::find($request->id);
-        $stk = 0;
-        $stk = $request->stk;
         $newstk = $request->stk + $item->stok;
         $newharga = str_replace(",","",$request->harga_beli);
-        $newjual = str_replace(",","",$request->harga_jual);
         $newtotal = str_replace(".","",$request->total);
-        if($stk == 0){
-            Items::updateOrCreate([
-                'id' => $request->id],
-            [
-                'id_category' => $request->category,
-                'item_name' => $request->nama_barang,
-                'buy_price' => $newharga,
-                'sell_price' => $newjual,
-            ]);
+        Items::updateOrCreate([
+            'id' => $request->id],
+        [
+            'stok' => $newstk,
+            'buy_price' => $newharga
+        ]);
 
-            return redirect('/home')->with('alert','Edit berhasil');
-        } else {
-            Items::updateOrCreate([
-                'id' => $request->id],
-            [
-                'id_category' => $request->category,
-                'item_name' => $request->nama_barang,
-                'stok' => $newstk,
-                'buy_price' => $newharga,
-                'sell_price' => $newjual,
-            ]);
+        Outcome::Create([
+            'id_item' => $request->id,
+            'price' => $newharga,
+            'qty' => $request->stk,
+            'total' => $newtotal,
+        ]);
 
-            Outcome::Create([
-                'id_item' => $request->id,
-                'price' => $newharga,
-                'qty' => $request->stk,
-                'total' => $newtotal,
-            ]);
-
-            return redirect('/home')->with('alert','Restock berhasil');
-        }
+        return redirect('/home')->with('alert','Restock berhasil');
     }
 }

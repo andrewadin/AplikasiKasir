@@ -35,7 +35,7 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Barang</th>
+                                            <th>Nama Prooduk</th>
                                             <th>Kategori</th>
                                             <th>Stok</th>
                                             <th>Harga Beli</th>
@@ -58,8 +58,12 @@
                                                         @method('DELETE')
                                                         <input type="hidden" name="id" value="{{ $b->id }}">
                                                         <a href="{{ route('barang-restockid', $b->id) }}"
+                                                            class="btn btn-info"><i class="fa fa-pencil-square-o"
+                                                                aria-hidden="true"></i> Restock
+                                                        </a>
+                                                        <a href="{{ route('barang-edit', $b->id) }}"
                                                             class="btn btn-success"><i class="fa fa-pencil-square-o"
-                                                                aria-hidden="true"></i> Restock / Edit
+                                                                aria-hidden="true"></i> Edit Produk
                                                         </a>
                                                         <button type="submit" class="btn btn-danger"
                                                             onclick="return confirm('Apakah anda yakin untuk menghapus produk ini?')"><i

@@ -71,25 +71,22 @@ class ItemController extends Controller
     public function update(Request $request, $id){
         $rules = array(
             'category' => 'required',
-            'item_name' => 'required|unique:items',
-            'stok' => 'required',
+            'item_name' => 'required',
             'buy_price' => 'required',
-            'sell_price' => 'required'
+            'sell_price' => 'required',
         );
 
         $messages = array(
-            'required' => ':attribute kosong',
+            'category.required' => 'Kategori kosong',
             'item_name.required' => 'Barang kosong',
-            'item_name.unique' => 'Barang sudah ada',
-            'stok.required' => 'Stok kosong',
             'buy_price.required' => 'Harga beli kosong',
-            'sell_price.required' => 'Harga jual kosong'
+            'sell_price.required' => 'Harga jual kosong',
         );
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if($validator->fails())
         {
-            return redirect('/tabel/barang/edit'.$id)
+            return redirect('/tabel/barang/edit/'.$id)
             ->withErrors($validator);
         }
 
@@ -100,7 +97,6 @@ class ItemController extends Controller
             [
             'id_category' => $request->category,
             'item_name' => $request->item_name,
-            'stok' => $request->stok,
             'buy_price' => $buy_price,
             'sell_price' => $sell_price,
         ]);

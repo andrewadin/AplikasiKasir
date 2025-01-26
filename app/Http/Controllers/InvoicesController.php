@@ -21,6 +21,10 @@ class InvoicesController extends Controller
         $invoice = Transaction::with('items')->orderBy('created_at', 'desc')->get()->groupBy('created_at');
         return view('layouts/table-transaction',['invoice' => $invoice]);
     }
+    public function ktransaction(){
+        $invoice = Transaction::with('items')->orderBy('created_at', 'desc')->get()->groupBy('created_at');
+        return view('layouts/k-transaction',['invoice' => $invoice]);
+    }
 
     public function printNota ($id){
         $fornow = Transaction::find($id);
@@ -29,7 +33,19 @@ class InvoicesController extends Controller
         foreach ($nota as $n){
             $totalall += $n->total;
         }
+        //dump(count($nota))
+            return view('layouts/print-pastReceipt',['histori' => $nota,'totalall'=> $totalall]);
+            
+        }
+        
+    public function kprintNota ($id){
+        $fornow = Transaction::find($id);
+        $nota = Transaction::with('items')->where('created_at', $fornow->created_at)->get();
+        $totalall = 0;
+        foreach ($nota as $n){
+            $totalall += $n->total;
+        }
         //dump(count($nota));
-        return view('layouts/print-pastReceipt',['histori' => $nota,'totalall'=> $totalall]);
-    }
+            return view('layouts/k-pastReceipt',['histori' => $nota,'totalall'=> $totalall]);
+        }
 }

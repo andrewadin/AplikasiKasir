@@ -147,7 +147,6 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#hr_menu">Halaman</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting"><i class="icon-settings"></i></a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -175,37 +174,6 @@
                             <li><a href="{{ route('users') }}"><i class="icon-user"></i>Pengguna / User</a></li>
                         </ul>
                     </nav>
-                </div>
-                <div class="tab-pane animated fadeIn" id="setting">
-                    <div class="p-l-15 p-r-15">
-                        <h6>Pilih Warna</h6>
-                        <ul class="choose-skin list-unstyled">
-                            <li data-theme="purple">
-                                <div class="purple"></div>
-                                <span>Purple</span>
-                            </li>
-                            <li data-theme="blue">
-                                <div class="blue"></div>
-                                <span>Blue</span>
-                            </li>
-                            <li data-theme="cyan">
-                                <div class="cyan"></div>
-                                <span>Cyan</span>
-                            </li>
-                            <li data-theme="green">
-                                <div class="green"></div>
-                                <span>Green</span>
-                            </li>
-                            <li data-theme="orange" class="active">
-                                <div class="orange"></div>
-                                <span>Orange</span>
-                            </li>
-                            <li data-theme="blush">
-                                <div class="blush"></div>
-                                <span>Blush</span>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>

@@ -50,12 +50,20 @@
                                                 </select></td>
                                             <td><input class="form-control stk" type="number" name="stk[]"
                                                     id="stk"></td>
-                                            <td><input class="form-control harga" type="text" name="harga[]"
-                                                    id="harga"></td>
+                                            <td><div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" style="font-size:12px;">Rp</span>
+                                                    </div>
+                                                <input class="form-control harga" type="text" name="harga[]"
+                                                    id="harga"></div></td>
                                             <td><input class="form-control diskon" type="number" name="diskon[]"
                                                     id="diskon" min="0" max="100" onKeyPress="if(this.value.length==3) return false;" value="0"></td>
-                                            <td><input class="form-control total_item" type="text" name="total[]"
-                                                    id="total_item"></td>
+                                            <td><div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" style="font-size:12px;">Rp</span>
+                                                    </div>
+                                                <input class="form-control total_item" type="text" name="total[]"
+                                                    id="total_item"></div></td>
                                             <td><a href="#" class="btn btn-danger delete"><i
                                                         class="fa fa-minus-square"></i></a></td>
                                         </tr>
@@ -69,8 +77,13 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item"> Total = Rp. <b class="total" id="total"> 0</b></li>
                                         <input type="hidden" name="totalall" class="vtotal">
-                                        <li class="list-group-item"> <input type="text" class="form-control uang_bayar"
-                                                name="uang_bayar" id="uang_bayar" value="" placeholder="Masukkan Uang"></li>
+                                        <li class="list-group-item"> <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" style="font-size:12px;">Rp</span>
+                                            </div>
+                                        <input type="text" class="form-control uang_bayar"
+                                            name="uang_bayar" id="uang_bayar" value=""
+                                            placeholder="Masukkan Uang"></div></li>
                                         <li class="list-group-item"> Kembalian = Rp. <b class="kembalian"> 0</b></li>
                                         <input type="hidden" name="kembalian" class="vkembalian">
                                         <li class="list-group-item"><button type="submit"

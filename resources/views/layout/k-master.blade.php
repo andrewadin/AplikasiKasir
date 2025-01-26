@@ -26,10 +26,76 @@
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
+<style>
+@media print {
+    @page{
+        margin: 0;
+    }
+    .page-screen {
+        display: none;
+    }
+    .page-print {
+        display: block;
+    }
+    .ftsz {
+        font-size: 5.5em;
+    }
+    .ftsz-sm {
+        font-size: 4em;
+    }
+    .img-sz{
+        width: 25%;
+        height: 25%;
+    }
+    .bold-brd{
+        border: 3px solid black;
+    }
+}
+.page-screen {
+    display: block;
+ }
+.page-print {
+    display: none;
+ }
+.ctnr{
+height: 70px;
+}
+
+.ctnr img{
+max-height: 100%;
+max-width: 100%;
+}
+
+.cntr{
+text-align: center;
+}
+.inln{
+display: inline-block;
+margin-right: 25%;
+}
+
+.font-lg{
+font-size: large;
+}
+.crd{
+justify-content: center;
+border: 2px solid black;
+background-color: white;
+.body{
+    color: black;
+}
+}
+.parent{
+display: flex;
+}
+.left, .right {
+flex: 1;
+}
+</style>
 @yield('css')
 </head>
 
-<body class="theme-cyan">
+<body class="theme-cyan" id="bd">
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
@@ -81,7 +147,6 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#hr_menu">Halaman</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#setting"><i class="icon-settings"></i></a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -89,40 +154,10 @@
                 <div class="tab-pane animated fadeIn active" id="hr_menu">
                     <nav class="sidebar-nav">
                         <ul class="main-menu metismenu">
-                            <li><a href="{{ route('khome') }}"><i class="fa fa-money" aria-hidden="true"></i>Kasir</a></li>
+                            <li><a href="{{ route('khome') }}"><i class="fa fa-cart-plus" aria-hidden="true"></i>Kasir</a></li>
+                            <li><a href="{{ route('ktransaksi')}}"><i class="fa fa-money" aria-hidden="true"></i>Transaksi</a></li>
                         </ul>
                     </nav>
-                </div>
-                <div class="tab-pane animated fadeIn" id="setting">
-                    <div class="p-l-15 p-r-15">
-                        <h6>Pilih Warna</h6>
-                        <ul class="choose-skin list-unstyled">
-                            <li data-theme="purple">
-                                <div class="purple"></div>
-                                <span>Purple</span>
-                            </li>
-                            <li data-theme="blue">
-                                <div class="blue"></div>
-                                <span>Blue</span>
-                            </li>
-                            <li data-theme="cyan">
-                                <div class="cyan"></div>
-                                <span>Cyan</span>
-                            </li>
-                            <li data-theme="green">
-                                <div class="green"></div>
-                                <span>Green</span>
-                            </li>
-                            <li data-theme="orange" class="active">
-                                <div class="orange"></div>
-                                <span>Orange</span>
-                            </li>
-                            <li data-theme="blush">
-                                <div class="blush"></div>
-                                <span>Blush</span>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>

@@ -27,10 +27,10 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2>Tambah baru kategori</h2>
+                            <h2>Edit Barang</h2>
                         </div>
                         <div class="body">
-                            <form id="basic-form" method="post" action="{{ route('barang-update',$barang->id) }}">
+                            <form id="basic-form" method="post" action="{{route('barang-update',$barang->id)}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
@@ -44,28 +44,39 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nama Barang</label>
-                                    <input type="text" name="item_name" class="form-control" value="{{ $barang->item_name }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Stok</label>
-                                    <input type="number" name="stok" class="form-control" value="{{ $barang->stok }}">
+                                    <input type="text" name="item_name" class="form-control nama_barang @error('item_name') is-invalid @enderror" value="{{ $barang->item_name }}">
+                                    @error('item_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <label for="">Harga Beli</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">Rp</span>
+                                        <span class="input-group-text" style="font-size:12px;">Rp</span>
                                     </div>
-                                    <input type="text" class="form-control" name="buy_price" placeholder="Ex: 1.000,00 Rp" id="buy_price" value="{{ $barang->buy_price }}">
+                                    <input type="text" class="form-control harga_barang @error('buy_price') is-invalid @enderror" name="buy_price" placeholder="Ex: 1.000" id="buy_price" value="{{ $barang->buy_price }}">
                                 </div>
+                                @error('buy_price')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 <label for="">Harga Jual</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">Rp</span>
+                                        <span class="input-group-text" style="font-size:12px;">Rp</span>
                                     </div>
-                                    <input type="text" class="form-control" name="sell_price" placeholder="Ex: 1000,00 Rp" id="sell_price" value="{{ $barang->sell_price }}">
+                                    <input type="text" class="form-control harga_jual @error('sell_price') is-invalid @enderror" name="sell_price" placeholder="Ex: 1000" id="sell_price" value="{{ $barang->sell_price }}">
                                 </div>
+                                @error('sell_price')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 <br>
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Edit </button>
                                 <a href="{{ route('barang')}}" class="btn btn-danger">Kembali</a>
                             </form>
                         </div>

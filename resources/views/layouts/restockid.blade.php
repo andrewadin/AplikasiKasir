@@ -41,22 +41,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Kategori</label>
-                                    <select name="category" id="" class="form-control @error('category') is-invalid @enderror" required>
-                                        <option value="">---- Pilih Kategori ---- </option>
-                                        @foreach ($kategori as $c)
-                                        <option value="{{ $c->id }}" @selected($sbarang->id_category == $c->id)>{{ $c->category }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('category')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
                                     <span>Nama produk</span>
-                                    <input type="text" class="form-control nama_barang @error('nama_barang') is-invalid @enderror" name="nama_barang" id="nama_barang" value="{{$sbarang['item_name']}}" required>
+                                    <input type="text" class="form-control nama_barang @error('nama_barang') is-invalid @enderror" name="nama_barang" id="nama_barang" value="{{$sbarang['item_name']}}" required readonly>
                                     @error('nama_barang')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -73,26 +59,28 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <span>Harga jual</span>
-                                    <input class="form-control harga_jual @error('harga_jual') is-invalid @enderror" type="text" name="harga_jual" id="harga_jual" value="{{$sbarang['sell_price']}}" required>
-                                    @error('harga_jual')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
                                     <span>Harga beli</span>
-                                    <input class="form-control harga_beli @error('harga_beli') is-invalid @enderror" type="text" name="harga_beli" id="harga_beli" value="{{$sbarang['buy_price']}}" required>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text" style="font-size:12px;">Rp.</div>
+                                        </div>
+                                        <input class="form-control harga_beli @error('harga_beli') is-invalid @enderror" type="text" name="harga_beli" id="harga_beli" value="{{$sbarang['buy_price']}}" required>
+                                    </div>
                                     @error('harga_beli')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                    
                                 </div>
                                 <div class="form-group">
                                     <span>Total</span>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text" style="font-size:12px;">Rp.</div>
+                                        </div>
                                     <input class="form-control total @error('total') is-invalid @enderror" type="text" name="total" id="total" value="0" readonly required>
+                                    </div>
                                     @error('total')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -113,11 +101,6 @@
 
 @section('script')
     <script>
-        new AutoNumeric('#harga_jual', {
-        digitGroupSeparator: ',',
-        decimalPlaces: 0,
-        });
-
         new AutoNumeric('#harga_beli', {
         digitGroupSeparator: ',',
         decimalPlaces: 0,

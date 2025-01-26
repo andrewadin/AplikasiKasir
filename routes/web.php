@@ -73,5 +73,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 Route::middleware(['auth', 'user-access:kasir'])->group(function () {
     Route::get('/khome', [HomeController::class, 'kasirindex'])->name('khome');
     Route::post('/kasir/kstore',[KasirController::class,'store'])->name('kasir-kstore');
+    Route::get('/kprintNota/{id}',[InvoicesController::class,'kprintNota'])->name('kprintNota');
+    Route::get('/tabel/ktransaksi', [InvoicesController::class,'ktransaction'])->name('ktransaksi');
 });
-Route::get('/testchart123', [ChartController::class, 'index'])->name('testchart');
