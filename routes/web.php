@@ -63,6 +63,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/laporan/pemasukan-tahunan', [InvoicesController::class,'getTahunan'])->name('pemasukan-tahunan');
     Route::get('/laporan/filteredtahunan', [InvoicesController::class,'filteredTahunan'])->name('filtered-tahunan');
 
+    Route::get('/laporan/pengeluaran-harian', [ExpensesController::class,'getHarian'])->name('pengeluaran-harian');
+    Route::get('/laporan/filtered-harian', [ExpensesController::class,'filteredHarian'])->name('filtered-harian');
+    Route::get('/laporan/pengeluaran-bulanan', [ExpensesController::class,'getBulanan'])->name('pengeluaran-bulanan');
+    Route::get('/laporan/filtered-bulanan', [ExpensesController::class,'filteredBulanan'])->name('filtered-bulanan');
+    Route::get('/laporan/pengeluaran-tahunan', [ExpensesController::class,'getTahunan'])->name('pengeluaran-tahunan');
+    Route::get('/laporan/filteredtahunan', [ExpensesController::class,'filteredTahunan'])->name('filtered-tahunan');
+
     Route::get('/users', [UsersController::class,'index'])->name('users');
     Route::get('/users/add',[UsersController::class,'add'])->name('users-add');
     Route::post('/users/store',[UsersController::class,'store'])->name('users-store');
