@@ -56,7 +56,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/restock', [ExpensesController::class,'store'])->name('restock');
     Route::get('/laporan/pengeluaran', [ExpensesController::class,'index'])->name('pengeluaran');
 
-    Route::get('/laporan/pemasukan', [InvoicesController::class,'index'])->name('pemasukan');
+    Route::get('/laporan/pemasukan-harian', [InvoicesController::class,'getHarian'])->name('pemasukan-harian');
+    Route::get('/laporan/filtered-harian', [InvoicesController::class,'filteredHarian'])->name('filtered-harian');
+    Route::get('/laporan/pemasukan-bulanan', [InvoicesController::class,'getBulanan'])->name('pemasukan-bulanan');
+    Route::get('/laporan/filtered-bulanan', [InvoicesController::class,'filteredBulanan'])->name('filtered-bulanan');
+    Route::get('/laporan/pemasukan-tahunan', [InvoicesController::class,'getTahunan'])->name('pemasukan-tahunan');
+    Route::get('/laporan/filteredtahunan', [InvoicesController::class,'filteredTahunan'])->name('filtered-tahunan');
 
     Route::get('/users', [UsersController::class,'index'])->name('users');
     Route::get('/users/add',[UsersController::class,'add'])->name('users-add');

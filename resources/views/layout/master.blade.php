@@ -179,8 +179,10 @@
                             <li>
                                 <a href="#Report" class="has-arrow"><i class="icon-bar-chart"></i><span>Laporan</span></a>
                                 <ul>
+                                    <li><a href="{{ route('pemasukan-harian')}}">Rekap Harian</a></li>
+                                    <li><a href="{{ route('pemasukan-bulanan')}}">Rekap Bulan</a></li>
+                                    <li><a href="{{ route('pemasukan-tahunan')}}">Rekap Tahun</a></li>
                                     <li><a href="{{ route('pengeluaran') }}">Pengeluaran</a></li>
-                                    <li><a href="{{ route('pemasukan') }}">Pemasukan</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{ route('users') }}"><i class="icon-user"></i>Pengguna / User</a></li>
