@@ -32,7 +32,7 @@
                     <div class="card text-center bg-secondary">
                         <div class="body">
                             <div class="p-15 text-light">
-                                <h3>15</h3>
+                                <h3>{{$trans}}</h3>
                                 <span>Total Transaksi</span>
                             </div>
                         </div>

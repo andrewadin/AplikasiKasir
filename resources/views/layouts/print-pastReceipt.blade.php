@@ -143,7 +143,7 @@
                     </div>
                     <div class="form-group col-lg-12 page-screen">
                         <button type="button" class="btn btn-primary" onclick="printNota()">Cetak Nota</button>
-                        <a href="{{route('pemasukan')}}" class="btn btn-secondary">Kembali</a>
+                        <a href="{{route('transaksi')}}" class="btn btn-secondary">Kembali</a>
                     </div>
                 </div>
             </div>

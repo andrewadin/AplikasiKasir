@@ -3,7 +3,10 @@
     Tabel Barang
 @endsection
 @section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<link rel="stylesheet" href="{{asset('assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="{{asset('assets/vendor/sweetalert/sweetalert.css')}}"/>
 @endsection
 @section('content')
     <div id="main-content">
@@ -31,7 +34,7 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-hover js-basic-example dataTable table-custom">
+                                <table class="table table-striped table-hover dataTable js-exportable">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>No</th>
@@ -85,12 +88,33 @@
 @endsection
 
 @section('script')
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-    <script>
-        var msg = '{{Session::get('alert')}}';
-        var exist = '{{Session::has('alert')}}';
-        if(exist){
-            alert(msg);
-        }
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.colVis.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.html5.min.js')}}"></script>
+<script src="{{asset('assets/vendor/jquery-datatable/buttons/buttons.print.min.js')}}"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{asset('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+		
+<script src="{{asset('assets/js/bootstrap-datepicker.id.min.js')}}" charset="UTF-8"></script>
+
+<script src="{{asset('assets/vendor/sweetalert/sweetalert.min.js')}}"></script> 
+<script>
+    $('.datepicker').datepicker({
+        language: "id",
+        format: 'yyyy-mm-dd',
+        todayHighlight: true
+    });
+</script>
+<script>
+var msg = '{{Session::get('alert')}}';
+var exist = '{{Session::has('alert')}}';
+if(exist){
+    alert(msg);
+}
+</script>
 @endsection

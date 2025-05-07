@@ -96,7 +96,7 @@
                         @endif
                         <div class="table-responsive">
                             <table class="table table-striped table-hover dataTable js-exportable">
-                                <thead>
+                                <thead class="thead-dark">
                                     <tr>
                                         <th>No</th>
                                         <th>Produk</th>

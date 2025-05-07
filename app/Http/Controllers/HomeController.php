@@ -40,6 +40,7 @@ class HomeController extends Controller
         $stock = Items::where('stok','<','100')->get();
         $nstock = Items::where('stok','<','100')->count();
         $income = Transaction::all()->sum('total');
+        $trans = Transaction::all()->count();
         $expenses = Outcome::all()->sum('total');
 
         $mdataget = Transaction::select(DB::raw("SUM(total) as sum"))
@@ -55,7 +56,7 @@ class HomeController extends Controller
                 -> pluck('day');
         // dump($mdataget);
         // dump($day);
-        return view('layouts/dashboard',['items' => $items, 'income' => $income, 'expenses' => $expenses, 'stock' => $stock, 'nstock' => $nstock], compact('mdataget','day'));
+        return view('layouts/dashboard',['items' => $items, 'income' => $income, 'expenses' => $expenses, 'stock' => $stock, 'nstock' => $nstock,'trans' => $trans], compact('mdataget','day'));
     }
 
     public function testnota(){
