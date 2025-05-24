@@ -42,10 +42,10 @@
             height: 100%;
         }
         .ftsz {
-            font-size: 5.5em;
+            font-size: 3em;
         }
         .ftsz-sm {
-            font-size: 4em;
+            font-size: 3em;
         }
         .img-sz{
             width: 25%;
@@ -101,7 +101,7 @@
 }
 .img-lg{
     width: 100%;
-    heght: 100%;
+    height: 100%;
 }
 </style>
 @yield('css')

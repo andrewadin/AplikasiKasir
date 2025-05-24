@@ -5,9 +5,9 @@
 @section('css')
 <style>
     table{
-        width: 100%;
+        width: 70%;
         border-collapse: collapse;
-        margin-left: 2%;
+        margin-left: 12%;
     }
     thead {
         display: table-row-group;
