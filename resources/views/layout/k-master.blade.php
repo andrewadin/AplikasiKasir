@@ -27,69 +27,81 @@
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
 <style>
-@media print {
-    @page{
-        margin: 0;
-    }
-    .page-screen {
-        display: none;
+    @media print {
+        @page{
+            margin: 0;
+        }
+        .page-screen {
+            display: none;
+        }
+        .page-print {
+            display: block;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .ftsz {
+            font-size: 3em;
+        }
+        .ftsz-sm {
+            font-size: 3em;
+        }
+        .img-sz{
+            width: 25%;
+            height: 25%;
+        }
+        .bold-brd{
+            border: 3px solid black;
+        }
     }
     .page-print {
-        display: block;
+            display: none;
     }
-    .ftsz {
-        font-size: 5.5em;
+    .page-screen {
+            display: block;
     }
-    .ftsz-sm {
-        font-size: 4em;
-    }
-    .img-sz{
-        width: 25%;
-        height: 25%;
-    }
-    .bold-brd{
-        border: 3px solid black;
-    }
-}
-.page-screen {
-    display: block;
+ .ctnr{
+    height: 70px;
  }
-.page-print {
-    display: none;
+
+ .ctnr img{
+    max-height: 100%;
+    max-width: 100%;
  }
-.ctnr{
-height: 70px;
-}
 
-.ctnr img{
-max-height: 100%;
-max-width: 100%;
-}
+ .cntr{
+    text-align: center;
+ }
+ .inln{
+    display: inline-block;
+    margin-right: 25%;
+ }
 
-.cntr{
-text-align: center;
+ .font-lg{
+    font-size: large;
+ }
+ .crd{
+    justify-content: center;
+    border: 2px solid black;
+    background-color: white;
+    .body{
+        color: black;
+    }
+ }
+ .parent{
+    display: flex;
+ }
+ .left, .right {
+    flex: 1;
+  }
+.img-sm{
+    width: 25%;
+    height: 25%;
 }
-.inln{
-display: inline-block;
-margin-right: 25%;
-}
-
-.font-lg{
-font-size: large;
-}
-.crd{
-justify-content: center;
-border: 2px solid black;
-background-color: white;
-.body{
-    color: black;
-}
-}
-.parent{
-display: flex;
-}
-.left, .right {
-flex: 1;
+.img-lg{
+    width: 100%;
+    height: 100%;
 }
 </style>
 @yield('css')

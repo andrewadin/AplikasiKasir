@@ -27,6 +27,12 @@
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/color_skins.css')}}">
 <style>
+     .page-print {
+            display: none;
+    }
+    .page-screen {
+            display: block;
+    }
     @media print {
         @page{
             margin: 0;
@@ -54,12 +60,6 @@
         .bold-brd{
             border: 3px solid black;
         }
-    }
-    .page-print {
-            display: none;
-    }
-    .page-screen {
-            display: block;
     }
  .ctnr{
     height: 70px;

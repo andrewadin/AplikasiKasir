@@ -12,7 +12,6 @@
     thead {
         display: table-row-group;
     }
-    
 </style>
 @endsection
 @section('content')
@@ -58,22 +57,24 @@
                                         <td>Rp. {{number_format($h->total),0,',','.'}}</td>
                                     </tr>
                                     @endforeach
-                                    <tr style="font-weight:bold;">
+                                </tbody>
+                                <tfoot style="font-weight:bold;">
+                                    <tr>
                                         <td></td>
                                         <td>Total</td>
                                         <td>Rp. {{number_format($totalall),0,',','.'}}</td>
                                     </tr>
-                                    <tr style="font-weight:bold;">
+                                    <tr>
                                         <td></td>
                                         <td>Tunai</td>
                                         <td>Rp. {{number_format($h->payment),0,',','.'}}</td>
                                     </tr>
-                                    <tr style="font-weight:bold;">
+                                    <tr>
                                         <td></td>
                                         <td>Kembalian</td>
                                         <td>Rp. {{number_format($h->change_money),0,',','.'}}</td>
                                     </tr>
-                                </tbody>
+                                </tfoot>
                             </table>
                             <div class="footer ftsz-sm">
                                 <center>
@@ -89,7 +90,7 @@
                     </div>
                     <div class="card page-print">
                         <div class="header">
-                            <center><span><img src="{{asset('assets/images/logo.png')}}"></span></center>
+                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width: 50%; height:50%;"></span></center>
                             <p class="ftsz-sm" style="text-align: justify;">
                             Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
                             Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>
@@ -112,22 +113,24 @@
                                         <td>Rp. {{number_format($h->total),0,',','.'}}</td>
                                     </tr>
                                     @endforeach
-                                    <tr style="font-weight:bold;">
+                                </tbody>
+                                <tfoot style="font-weight:bold;">
+                                    <tr>
                                         <td></td>
                                         <td>Total</td>
-                                        <td>@foreach ($histori as $h) Rp. {{number_format($totalall),0,',','.'}} @endforeach</td>
+                                        <td>Rp. {{number_format($totalall),0,',','.'}}</td>
                                     </tr>
-                                    <tr style="font-weight:bold;">
+                                    <tr>
                                         <td></td>
                                         <td>Tunai</td>
                                         <td>Rp. {{number_format($h->payment),0,',','.'}}</td>
                                     </tr>
-                                    <tr style="font-weight:bold;">
+                                    <tr>
                                         <td></td>
                                         <td>Kembalian</td>
                                         <td>Rp. {{number_format($h->change_money),0,',','.'}}</td>
                                     </tr>
-                                </tbody>
+                                </tfoot>
                             </table>
                             <div class="footer ftsz-sm">
                                 <center>
