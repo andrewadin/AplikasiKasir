@@ -32,7 +32,7 @@
             </div>
             <div class="row clearfix">
                 <div class="col-lg-12">
-                    <div class="card page-screen">
+                    <div class="card page-print">
                         <div class="header">
                             <center><span><img src="{{asset('assets/images/logo.png')}}"></span></center>
                             <p class="ftsz-sm" style="text-align: center;">
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card page-print">
+                    <div class="card page-screen">
                         <div class="header">
                             <center><span><img src="{{asset('assets/images/logo.png')}}" style="width: 50%; height:50%;"></span></center>
                             <p class="ftsz-sm" style="text-align: justify;">
@@ -132,15 +132,13 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                            <div class="footer ftsz-sm">
-                                <center>
+                            <div class="footer ftsz-sm cntr">
                                     <br>
                                 <p><strong>Terimakasih Telah Berbelanja!</strong></p>
                                    <p>Beli online </br>
                                     Shopee    : shopee.com/lugusranu </br>
                                     Tokopedia : tokopedia.com/lugusranu </br>
                                   </p>
-                                </center>
                             </div>
                         </div>
                     </div>
