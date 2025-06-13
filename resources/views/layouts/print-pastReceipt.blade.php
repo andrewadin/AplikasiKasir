@@ -8,6 +8,7 @@
         width: 70%;
         border-collapse: collapse;
         margin-left: 12%;
+        page-break-inside: avoid;
     }
     thead {
         display: table-row-group;
@@ -32,7 +33,7 @@
             </div>
             <div class="row clearfix">
                 <div class="col-lg-12">
-                    <div class="card page-print">
+                    <div class="card page-screen">
                         <div class="header">
                             <center><span><img src="{{asset('assets/images/logo.png')}}"></span></center>
                             <p class="ftsz-sm" style="text-align: center;">
@@ -88,9 +89,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card page-screen">
+                    <div class="card page-print no-break">
                         <div class="header">
-                            <center><span><img src="{{asset('assets/images/logo.png')}}" style="width: 50%; height:50%;"></span></center>
+                            <center><img src="{{asset('assets/images/logo.png')}}" style="width: 50%; height:50%;"></center>
                             <p class="ftsz-sm" style="text-align: justify;">
                             Alamat : Jl. Raya Ranuklindungan-Grati, Pasuruan - Jawa Timur
                             Pusat oleh-oleh dan klinik UMKM Khas Pasuruan</p>

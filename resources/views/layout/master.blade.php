@@ -37,6 +37,9 @@
         @page{
             margin: 0;
         }
+        .no-break {
+             page-break-inside: avoid;
+        }
         .page-screen {
             display: none;
         }
